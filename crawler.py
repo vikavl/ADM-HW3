@@ -120,23 +120,26 @@ async def process_folder(session, page, urls):
     return 1
 
 
-async def crawl_restaurants(base_filename: str = FILENAME, n_pages: int = 100, n_cards: int = N_CARDS_PER_FOLDER):
+async def crawl_restaurants(base_filename: str = FILENAME, n_cards: int = N_CARDS_PER_FOLDER):
     """
     Asynchronously crawls Michelin restaurant URLs from a text file and saves each page's HTML locally,
     with retries for any failed folders.
 
     Args:
         base_filename (str): Path to the text file containing restaurant URLs.
-        n_pages (int): Number of pages (groups of restaurants) to process.
         n_cards (int): Number of restaurant URLs to process per page.
     """
     try:
         with open(base_filename, 'r') as urls_file:
             urls = [url.strip() for url in urls_file if url.strip()]
 
+        # Calculate the actual total number of folders required
+        total_folders = (len(urls) + n_cards - 1) // n_cards  # Round up to cover all URLs
+
+
         async with aiohttp.ClientSession() as session:
             # Process each "folder" (20 URLs) concurrently as separate tasks
-            for page in range(1, n_pages + 1):
+            for page in range(1, total_folders + 1):
                 print(f"CURRENT PAGE: {page}")
 
                 # Get a subset of URLs for this page (up to 20 URLs per folder)
