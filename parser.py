@@ -137,7 +137,7 @@ def write_restaurant_data_to_tsv(output_file_path):
     Args:
         output_file_path (str): The path to the TSV file where the data should be saved.
     """
-    # Initialize TSV file with headers
+    #  Initialize TSV file with headers
     headers = [
         "restaurantName",
         "address",
@@ -166,14 +166,14 @@ def write_restaurant_data_to_tsv(output_file_path):
                 for filename in os.listdir(folder_path):
                     if filename.endswith('.html'):
                         file_path = os.path.join(folder_path, filename)
-                        print(file_path)
+                        print(f"Processing file: {file_path}")
                         restaurant_data = extract_restaurant_data(file_path)
                         if restaurant_data is None:
                             print("403 FORBIDDEN")
                             continue
 
-                        # Construct the TSV row, converting None values to empty strings for the final output
-                        tsv_row = '\t'.join([
+                        # Build TSV row with explicit handling for None values
+                        row_data = [
                             restaurant_data.get("restaurantName") or "",
                             restaurant_data.get("address") or "",
                             restaurant_data.get("city") or "",
@@ -186,7 +186,16 @@ def write_restaurant_data_to_tsv(output_file_path):
                             ", ".join(restaurant_data.get("creditCards", [])) if restaurant_data.get("creditCards") else "",
                             restaurant_data.get("phoneNumber") or "",
                             restaurant_data.get("website") or ""
-                        ])
+                        ]
+
+                        # Verify the correct number of fields in row_data
+                        if len(row_data) != len(headers):
+                            print(f"Error: Row data length {len(row_data)} does not match header length {len(headers)}")
+                            print(f"Row data: {row_data}")
+                            continue  # Skip this row if there is an issue
+
+                        # Join the row data into a tab-separated string
+                        tsv_row = '\t'.join(row_data)
                         
                         # Write the TSV row to the file
                         f_tsv.write(tsv_row + '\n')
