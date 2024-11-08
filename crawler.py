@@ -1,6 +1,9 @@
 import os
 import aiohttp
 import asyncio
+from bs4 import BeautifulSoup
+import requests
+from tqdm import tqdm
 
 # Constants
 ROOT_FOLDER = "restaurants"
@@ -9,6 +12,38 @@ FILENAME = "restaurants.txt"
 N_CARDS_PER_FOLDER = 20 
 # Maximum retry attempts for each folder 
 MAX_FOLDER_RETRIES = 3  
+
+def scraping(filename=FILENAME, n_pages=100):
+    """
+    Crawls restaurant links from Michelin's website and saves them to a text file.
+    Args:
+        filename (str): Name of the file to save the restaurant URLs.
+        n_pages (int): Number of pages to scrape.
+    This function scrapes restaurant listing pages and extracts links for individual
+    restaurant pages. Each URL is written to a new line in `filename`.
+    """
+    link_counter = 1
+    with open(filename, 'a') as f:
+        for page_num in tqdm(range(1, n_pages + 1)):
+            page_url = f"https://guide.michelin.com/en/it/restaurants/page/{page_num}"
+            print(f"Processing: {page_url}")
+            try:
+                # Fetch and parse the listing page
+                response = requests.get(page_url)
+                # Raise an error for HTTP issues
+                response.raise_for_status()  
+                list_soup = BeautifulSoup(response.text, 'html.parser')
+                # Find restaurant links
+                for card in list_soup.find_all("div", {"class": "card__menu"}):
+                    card_link = card.find("a")
+                    if card_link and card_link.get("href"):
+                        card_url = card_link["href"]
+                        print(f"{link_counter}: {card_url}")
+                        f.write(card_url + "\n")
+                        link_counter += 1
+            except requests.exceptions.RequestException as e:
+                print(f"Failed to fetch {page_url}: {e}")
+                continue  # Skip to the next page if there's a fetch error
 
 async def commit_html(session, folder_number, restaurant_name, url) -> int:
     """
@@ -104,13 +139,11 @@ async def crawl_restaurants(base_filename: str = FILENAME, n_pages: int = 100, n
             for page in range(1, n_pages + 1):
                 print(f"CURRENT PAGE: {page}")
 
-                # Get a subset of URLs for this page (20 URLs per folder)
-                page_urls = urls[(page - 1) * n_cards : page * n_cards]
-
-                # The case when no URLs in the chunk
-                if not page_urls:
-                    print("End of file reached.")
-                    break
+                # Get a subset of URLs for this page (up to 20 URLs per folder)
+                start_index = (page - 1) * n_cards
+                # Handle end of the file index
+                end_index = min(page * n_cards, len(urls))
+                page_urls = urls[start_index:end_index]
 
                 # Process this folder (group of 20 URLs) with retries
                 result = await process_folder(session, page, page_urls)
