@@ -131,7 +131,7 @@ def list_to_string(ls):
         return "none"
     
     # Join elements
-    line = "[" + ", ".join(f"'{l}'" for l in ls) + "]"
+    line = "[" + ", ".join([f"'{el}'" for el in ls]) + "]"    
     return line
 
 def extract_restaurant_data(html_file_path):
@@ -248,8 +248,8 @@ def write_restaurant_data_to_tsv(output_file_path, file_paths):
                 restaurant_data.get("priceRange", "none"),
                 restaurant_data.get("cuisineType", "none"),
                 restaurant_data.get("description", "none"),
-                list_to_string(", ".join(restaurant_data.get("facilitiesServices", []))),
-                list_to_string(", ".join(restaurant_data.get("creditCards", []))),
+                list_to_string(restaurant_data.get("facilitiesServices", [])),
+                list_to_string(restaurant_data.get("creditCards", [])),
                 restaurant_data.get("phoneNumber", "none"),
                 restaurant_data.get("website", "none")
             ]
