@@ -231,18 +231,18 @@ def write_restaurant_data_to_tsv(output_file_path, file_paths):
                 continue
 
             row_data = [
-                restaurant_data.get("restaurantName", " "),
-                restaurant_data.get("address", " "),
-                restaurant_data.get("city", " "),
-                restaurant_data.get("postalCode", " "),
-                restaurant_data.get("country", " "),
-                restaurant_data.get("priceRange", " "),
-                restaurant_data.get("cuisineType", " "),
-                restaurant_data.get("description", " "),
+                restaurant_data.get("restaurantName", "0"),
+                restaurant_data.get("address", "0"),
+                restaurant_data.get("city", "0"),
+                restaurant_data.get("postalCode", "0"),
+                restaurant_data.get("country", "0"),
+                restaurant_data.get("priceRange", "0"),
+                restaurant_data.get("cuisineType", "0"),
+                restaurant_data.get("description", "0"),
                 ", ".join(restaurant_data.get("facilitiesServices", [])),
                 ", ".join(restaurant_data.get("creditCards", [])),
-                restaurant_data.get("phoneNumber", " "),
-                restaurant_data.get("website", " ")
+                restaurant_data.get("phoneNumber", "0"),
+                restaurant_data.get("website", "0")
             ]
 
             tsv_row = '\t'.join(row_data)
