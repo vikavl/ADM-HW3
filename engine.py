@@ -12,9 +12,10 @@ def setup():
     nltk.download('punkt')
     nltk.download('stopwords')
     # Is used for synonym expansion
-    nltk.download('wordnet')
     nltk.download('omw-1.4')
-    nltk.download('averaged_perceptron_tagger')
+    nltk.download('wordnet')
+    nltk.download('wordnet2022')
+    !cp -rf /usr/share/nltk_data/corpora/wordnet2022 /usr/share/nltk_data/corpora/wordnet # temp fix for lookup error.
 
 # Get synonyms
 def get_synonyms(word):
