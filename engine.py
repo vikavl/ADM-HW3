@@ -179,7 +179,7 @@ def execute(query, vocabulary, inverted_index, restaurants):
     # Step 2: Map query terms to term IDs
     term_ids = []
     for term in query_tokens:
-        if term in vocabulary: term_ids.append(str(vocabulary[term]))
+        if term in vocabulary: term_ids.append(vocabulary[term])
     print(term_ids)
 
     # Step 3: Retrieve document lists from the inverted index
@@ -188,10 +188,7 @@ def execute(query, vocabulary, inverted_index, restaurants):
         return pd.DataFrame(columns=['restaurantName', 'address', 'description', 'website'])
 
     # Get the list of document_ids for each term_id
-    document_ids = []
-    for term_id in term_ids:
-        if term_id in inverted_index:
-            document_ids.append(set(inverted_index[term_id]))
+    document_ids = [set(inverted_index[term_id]) for term_id in term_ids if term_id in inverted_index]
     print(document_ids)
 
     if not document_ids:
