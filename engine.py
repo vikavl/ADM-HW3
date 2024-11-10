@@ -152,3 +152,53 @@ def create_index(restaurants):
             inverted_index[word_id].append(document_id)
 
     return vocabulary, inverted_index
+
+
+def execute(query, vocabulary, inverted_index, restaurants):
+    """
+    Executes a conjunctive query on the restaurant descriptions, returning only those restaurants
+    whose descriptions contain all query terms.
+
+    Args:
+        query (str): The user input query string containing one or more search terms.
+        vocabulary (dict): A dictionary mapping each unique word in the dataset to a unique term ID (int).
+        inverted_index (defaultdict): A dictionary where each key is a term ID, and the corresponding value
+                                      is a list of document IDs where that term appears.
+        restaurants (pd.DataFrame): A DataFrame containing restaurant data, including columns like 'restaurantName',
+                                    'address', 'description', and 'website'.
+
+    Returns:
+        pd.DataFrame: A DataFrame containing information about restaurants that match the query.
+                      The columns include 'restaurantName', 'address', 'description', and 'website'.
+                      If no matches are found, an empty DataFrame is returned with the specified columns.
+    """
+    
+    # Step 1: Normalize query
+    query_tokens = get_normalized_tokens(query)
+
+    # Step 2: Map query terms to term IDs
+    term_ids = []
+    for term in query_tokens:
+        if term in vocabulary:
+            # Convert to string to match inverted index format
+            term_ids.append(str(vocabulary[term]))
+
+    # Step 3: Retrieve document lists from the inverted index
+    if not term_ids:
+        print("No matching terms found in vocabulary.")
+        return pd.DataFrame(columns=['restaurantName', 'address', 'description', 'website'])
+
+    # Get the list of document_ids for each term_id and find their intersection
+    doc_sets = [set(inverted_index[term_id]) for term_id in term_ids if term_id in inverted_index]
+
+    if not doc_sets:
+        print("No documents found containing all query terms.")
+        return pd.DataFrame(columns=['restaurantName', 'address', 'description', 'website'])
+
+    # Find the intersection of document lists
+    matching_docs = set.intersection(*doc_sets) if doc_sets else set()
+
+    # Step 4: Retrieve restaurant information for matching document IDs
+    results = restaurants.loc[matching_docs, ['restaurantName', 'address', 'description', 'website']]
+
+    return results
