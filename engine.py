@@ -136,7 +136,7 @@ def create_index(restaurants):
     inverted_index = defaultdict(list)
     term_id = 0
     # Loop over each document (restaurant description) by document_id
-    for document_id, description in restaurants['description'].items():
+    for document_id, description in restaurants['preprocessed_description'].items():
         # Tokenize
         tokens = word_tokenize(description)
         # Process each unique word in the document
