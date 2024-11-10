@@ -205,17 +205,18 @@ def execute(query, vocabulary, inverted_index, restaurants):
 
     return results
 
-def create_tfidf_inverted_index(restaurants):
+def create_tfidf_inverted_index(vocabulary, restaurants):
     """
     Creates an inverted index with TF-IDF scores for each term in each restaurant's description.
     
     Args:
+        vocabulary (dict): A dictionary mapping each unique word in the dataset to a unique term ID (int).
         restaurants (pd.DataFrame): A DataFrame containing restaurant data with:
                                     - 'index' column representing document IDs.
                                     - 'preprocessed_description' column holding the preprocessed descriptions.
 
     Returns:
-        tfidf_inverted_index (defaultdict): A dictionary where each key is a term ID and the value is a list of tuples (document_id, TF-IDF score). 
+        tfidf_inverted_index (Dictionary): A dictionary where each key is a term ID and the value is a list of tuples (document_id, TF-IDF score). 
                                             As follows:
         {
             "term_id_1": [(document1, tfIdf_{term,document1}), (document2, tfIdf_{term,document2}), ...],
@@ -223,19 +224,32 @@ def create_tfidf_inverted_index(restaurants):
             ...
         }
     """
-    vectorizer = TfidfVectorizer()
-    
-    # Fit and transform the preprocessed descriptions
-    tfidf_matrix = vectorizer.fit_transform(restaurants['preprocessed_description'])
-    
-    # Initialize the inverted index
-    tfidf_inverted_index = defaultdict(list)
+    # Invert vocabulary to dataframe
+    vocab_df = pd.DataFrame(list(vocabulary.items()), columns=['term', 'term_id'])
 
-    # Create the inverted index with TF-IDF scores
-    for doc_id, row in enumerate(tfidf_matrix):
-        # Get the non-zero TF-IDF scores for the document
-        for term_id, tfidf_score in zip(row.indices, row.data):
-            # Add (document_id, tfidf_score) to the term's entry in the inverted index
-            tfidf_inverted_index[term_id].append((restaurants[[restaurants['index'] == doc_id]], tfidf_score))
+    # Initialize vectorizer
+    vectorizer = TfidfVectorizer()
+
+    # Create TF-IDF score matrix
+    tfidf_matrix = vectorizer.fit_transform(restaurants['preprocessed_description'])
+    tfidf_df = pd.DataFrame(tfidf_matrix.toarray(), 
+                            columns=vectorizer.get_feature_names_out(), 
+                            index=restaurants.index)
+
+    # Initialize dictionary
+    tfidf_inverted_index = {}
+
+    # Iterate over each term and its term_id in vocab_df
+    for _, row in vocab_df.iterrows():
+        term = row['term']
+        term_id = row['term_id']
+        
+        # Retrieve the TF-IDF column corresponding to the term in tfidf_df
+        if term in tfidf_df.columns:
+            # Skip 0 TF-IDF scores
+            non_zero_tfidf = tfidf_df[term][tfidf_df[term] > 0]
+            
+            # Create list of (document index, tfidf_score) tuples for this term
+            tfidf_inverted_index[term_id] = [(doc_index, tfidf_score) for doc_index, tfidf_score in non_zero_tfidf.items()]
 
     return tfidf_inverted_index
