@@ -8,12 +8,13 @@ from textblob import TextBlob
 from collections import Counter
 
 def setup():
-    nltk.download()
     # Download the "punkt" tokenizer models from nltk
     nltk.download('punkt')
     nltk.download('stopwords')
     # Is used for synonym expansion
     nltk.download('wordnet')
+    nltk.download('omw-1.4')
+    nltk.download('averaged_perceptron_tagger')
 
 # Get synonyms
 def get_synonyms(word):
