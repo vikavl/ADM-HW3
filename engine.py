@@ -7,6 +7,8 @@ from nltk.tokenize import word_tokenize
 from textblob import TextBlob
 from collections import Counter
 import subprocess
+from collections import defaultdict
+import json
 
 def setup():
     # Download the "punkt" tokenizer models from nltk
@@ -26,7 +28,7 @@ def setup():
         print("WordNet fix applied successfully.")
     except Exception as e:
         print(f"Error applying WordNet fix: {e}")
-        
+
 # Get synonyms
 def get_synonyms(word):
     """
@@ -108,3 +110,45 @@ def get_word_counts(descriptions: pd.Series) -> Counter:
         word_counts.update(tokens)
 
     return word_counts
+
+
+def create_index(restaurants):
+    """
+    Creates a vocabulary and inverted index from a collection of restaurant descriptions.
+    
+    Args:
+        restaurants (pd.DataFrame): A DataFrame containing restaurant data, with a column named 'description'
+                                    that holds the text descriptions of each restaurant.
+    
+    Returns:
+        tuple: 
+            - vocabulary (dict): A dictionary mapping each unique word to a unique term ID (int).
+            - inverted_index (defaultdict): A dictionary where each key is a term ID and the corresponding value
+                                            is a list of document IDs where the term appears. As follows: 
+                                            {
+                                                "term_id_1": [document_1, document_2, document_4],
+                                                "term_id_2": [document_1, document_3, document_5],
+                                                ...
+                                            }
+    """
+    vocabulary = {}
+    # Dictionary where each key defaults to an empty list
+    inverted_index = defaultdict(list)
+    term_id = 0
+    # Loop over each document (restaurant description) by document_id
+    for document_id, description in restaurants['description'].items():
+        # Tokenize
+        tokens = word_tokenize(description)
+        # Process each unique word in the document
+        for word in set(tokens):
+            # If the word is not in the vocabulary, add it with a new term_id
+            if word not in vocabulary:
+                vocabulary[word] = term_id
+                term_id += 1
+
+            # Get the term_id of the word
+            word_id = vocabulary[word]
+            # Add document_id to the inverted index for the given word_id
+            inverted_index[word_id].append(document_id)
+
+    return vocabulary, inverted_index
