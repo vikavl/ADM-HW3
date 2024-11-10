@@ -8,7 +8,8 @@ from textblob import TextBlob
 from collections import Counter
 import subprocess
 from collections import defaultdict
-import json
+from sklearn.feature_extraction.text import TfidfVectorizer
+
 
 def setup():
     # Download the "punkt" tokenizer models from nltk
@@ -203,3 +204,43 @@ def execute(query, vocabulary, inverted_index, restaurants):
     results = restaurants.loc[sorted(list(intersected_ids)), ['restaurantName', 'address', 'description', 'website']]
 
     return results
+
+def create_tfidf_inverted_index(restaurants):
+    """
+    Creates an inverted index with TF-IDF scores for each term in each restaurant's description.
+    
+    Args:
+        restaurants (pd.DataFrame): A DataFrame containing restaurant data with:
+                                    - 'index' column representing document IDs.
+                                    - 'preprocessed_description' column holding the preprocessed descriptions.
+
+    Returns:
+        tuple: 
+            - vocabulary (dict): A dictionary mapping each unique word to a unique term ID.
+            - tfidf_inverted_index (defaultdict): A dictionary where each key is a term ID and the value
+                                                  is a list of tuples (document_id, TF-IDF score). As follows:
+                                                {
+                                                    "term_id_1": [(document1, tfIdf_{term,document1}), (document2, tfIdf_{term,document2}), ...],
+                                                    "term_id_2": [(document1, tfIdf_{term,document1}), (document3, tfIdf_{term,document3}), ...],
+                                                    ...
+                                                }
+    """
+    vectorizer = TfidfVectorizer()
+    
+    # Fit and transform the preprocessed descriptions
+    tfidf_matrix = vectorizer.fit_transform(restaurants['preprocessed_description'])
+    
+    # Create a vocabulary mapping words to term IDs
+    vocabulary = {word: i for i, word in enumerate(vectorizer.get_feature_names_out())}
+    
+    # Initialize the inverted index
+    tfidf_inverted_index = defaultdict(list)
+
+    # Create the inverted index with TF-IDF scores
+    for doc_id, row in enumerate(tfidf_matrix):
+        # Get the non-zero TF-IDF scores for the document
+        for term_id, tfidf_score in zip(row.indices, row.data):
+            # Add (document_id, tfidf_score) to the term's entry in the inverted index
+            tfidf_inverted_index[term_id].append((restaurants[[restaurants['index'] == doc_id]], tfidf_score))
+
+    return vocabulary, tfidf_inverted_index
