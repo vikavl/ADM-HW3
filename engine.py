@@ -7,11 +7,12 @@ from nltk.tokenize import word_tokenize
 from textblob import TextBlob
 from collections import Counter
 
-# Download the "punkt" tokenizer models from nltk
-nltk.download('punkt')
-nltk.download('stopwords')
-# Is used for synonym expansion
-nltk.download('wordnet')
+def setup():
+    # Download the "punkt" tokenizer models from nltk
+    nltk.download('punkt')
+    nltk.download('stopwords')
+    # Is used for synonym expansion
+    nltk.download('wordnet')
 
 # Get synonyms
 def get_synonyms(word):
