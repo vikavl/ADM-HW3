@@ -136,7 +136,7 @@ def create_index(restaurants):
     inverted_index = defaultdict(list)
     term_id = 0
     # Loop over each document (restaurant description) by document_id
-    for document_id, description in restaurants['preprocessed_description'].items():
+    for document_id, description in zip(restaurants['index'], restaurants['preprocessed_description']):
         # Tokenize
         tokens = word_tokenize(description)
         # Process each unique word in the document
@@ -180,7 +180,7 @@ def execute(query, vocabulary, inverted_index, restaurants):
     term_ids = []
     for term in query_tokens:
         if term in vocabulary: term_ids.append(vocabulary[term])
-    print(term_ids)
+    # print(term_ids)
 
     # Step 3: Retrieve document lists from the inverted index
     if not term_ids:
@@ -189,7 +189,7 @@ def execute(query, vocabulary, inverted_index, restaurants):
 
     # Get the list of document_ids for each term_id
     document_ids = [set(inverted_index[term_id]) for term_id in term_ids if term_id in inverted_index]
-    print(document_ids)
+    # print(document_ids)
 
     if not document_ids:
         print("No documents found containing all query terms.")
@@ -197,7 +197,7 @@ def execute(query, vocabulary, inverted_index, restaurants):
 
     # Find the intersection of document lists
     intersected_ids = set.intersection(*document_ids) if document_ids else set()
-    print(intersected_ids)
+    # print(intersected_ids)
 
     # Step 4: Retrieve restaurant information for matching document IDs
     results = restaurants.loc[sorted(list(intersected_ids)), ['restaurantName', 'address', 'description', 'website']]
