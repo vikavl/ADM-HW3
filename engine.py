@@ -200,6 +200,6 @@ def execute(query, vocabulary, inverted_index, restaurants):
     print(intersected_ids)
 
     # Step 4: Retrieve restaurant information for matching document IDs
-    results = restaurants.loc[intersected_ids, ['restaurantName', 'address', 'description', 'website']]
+    results = restaurants.loc[list(intersected_ids), ['restaurantName', 'address', 'description', 'website']]
 
     return results
