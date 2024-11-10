@@ -122,11 +122,17 @@ def get_website(soup):
     raw_url = website_element.get("href") if website_element else None
     return normalize_website_url(raw_url)
 
-import os
-import re
-from bs4 import BeautifulSoup
-
-# (Other parsing functions remain the same)
+def list_to_string(ls):
+    """
+    Converts a list to a formatted string.
+    """
+    # Handle the empty list case
+    if not ls:
+        return "none"
+    
+    # Join elements
+    line = "[" + ", ".join([f"'{el}'" for el in ls]) + "]"    
+    return line
 
 def extract_restaurant_data(html_file_path):
     """
@@ -162,6 +168,7 @@ def extract_restaurant_data(html_file_path):
 
     soup = BeautifulSoup(html_content, 'html.parser')
 
+    # Case: file was not crawled correctly 
     if soup.find("h1") and "403 ERROR" in soup.find("h1").text.strip():
         return None
 
@@ -228,22 +235,25 @@ def write_restaurant_data_to_tsv(output_file_path, file_paths):
         for file_path in file_paths:
             restaurant_data = extract_restaurant_data(file_path)
             if restaurant_data is None:
+                print(f"{file_path} was not parsed correctly")
                 continue
 
+            # SEt "none" placeholder
             row_data = [
-                restaurant_data.get("restaurantName", "0"),
-                restaurant_data.get("address", "0"),
-                restaurant_data.get("city", "0"),
-                restaurant_data.get("postalCode", "0"),
-                restaurant_data.get("country", "0"),
-                restaurant_data.get("priceRange", "0"),
-                restaurant_data.get("cuisineType", "0"),
-                restaurant_data.get("description", "0"),
-                ", ".join(restaurant_data.get("facilitiesServices", [])),
-                ", ".join(restaurant_data.get("creditCards", [])),
-                restaurant_data.get("phoneNumber", "0"),
-                restaurant_data.get("website", "0")
+                restaurant_data.get("restaurantName", "none"),
+                restaurant_data.get("address", "none"),
+                restaurant_data.get("city", "none"),
+                restaurant_data.get("postalCode", "none"),
+                restaurant_data.get("country", "none"),
+                restaurant_data.get("priceRange", "none"),
+                restaurant_data.get("cuisineType", "none"),
+                restaurant_data.get("description", "none"),
+                list_to_string(restaurant_data.get("facilitiesServices", [])),
+                list_to_string(restaurant_data.get("creditCards", [])),
+                restaurant_data.get("phoneNumber", "none"),
+                restaurant_data.get("website", "none")
             ]
 
             tsv_row = '\t'.join(row_data)
+            print(tsv_row)
             f_tsv.write(tsv_row + '\n')
