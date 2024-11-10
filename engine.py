@@ -8,6 +8,7 @@ from textblob import TextBlob
 from collections import Counter
 
 def setup():
+    nltk.download()
     # Download the "punkt" tokenizer models from nltk
     nltk.download('punkt')
     nltk.download('stopwords')
