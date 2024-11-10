@@ -6,6 +6,7 @@ from nltk.stem import SnowballStemmer
 from nltk.tokenize import word_tokenize
 from textblob import TextBlob
 from collections import Counter
+import subprocess
 
 def setup():
     # Download the "punkt" tokenizer models from nltk
@@ -15,8 +16,17 @@ def setup():
     nltk.download('omw-1.4')
     nltk.download('wordnet')
     nltk.download('wordnet2022')
-    !cp -rf /usr/share/nltk_data/corpora/wordnet2022 /usr/share/nltk_data/corpora/wordnet # temp fix for lookup error.
-
+    # Workaround to fix WordNet lookup error
+    try:
+        # Copy wordnet2022 to wordnet
+        subprocess.run(
+            ["cp", "-rf", "/usr/share/nltk_data/corpora/wordnet2022", "/usr/share/nltk_data/corpora/wordnet"],
+            check=True
+        )
+        print("WordNet fix applied successfully.")
+    except Exception as e:
+        print(f"Error applying WordNet fix: {e}")
+        
 # Get synonyms
 def get_synonyms(word):
     """
