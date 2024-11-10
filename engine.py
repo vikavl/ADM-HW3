@@ -179,26 +179,27 @@ def execute(query, vocabulary, inverted_index, restaurants):
     # Step 2: Map query terms to term IDs
     term_ids = []
     for term in query_tokens:
-        if term in vocabulary:
-            # Convert to string to match inverted index format
-            term_ids.append(str(vocabulary[term]))
+        if term in vocabulary: term_ids.append(str(vocabulary[term]))
+    print(term_ids)
 
     # Step 3: Retrieve document lists from the inverted index
     if not term_ids:
         print("No matching terms found in vocabulary.")
         return pd.DataFrame(columns=['restaurantName', 'address', 'description', 'website'])
 
-    # Get the list of document_ids for each term_id and find their intersection
-    doc_sets = [set(inverted_index[term_id]) for term_id in term_ids if term_id in inverted_index]
+    # Get the list of document_ids for each term_id
+    document_ids = [set(inverted_index[term_id]) for term_id in term_ids if term_id in inverted_index]
+    print(document_ids)
 
-    if not doc_sets:
+    if not document_ids:
         print("No documents found containing all query terms.")
         return pd.DataFrame(columns=['restaurantName', 'address', 'description', 'website'])
 
     # Find the intersection of document lists
-    matching_docs = set.intersection(*doc_sets) if doc_sets else set()
+    intersected_ids = set.intersection(*document_ids) if document_ids else set()
+    print(intersected_ids)
 
     # Step 4: Retrieve restaurant information for matching document IDs
-    results = restaurants.loc[matching_docs, ['restaurantName', 'address', 'description', 'website']]
+    results = restaurants.loc[intersected_ids, ['restaurantName', 'address', 'description', 'website']]
 
     return results
