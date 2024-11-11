@@ -133,8 +133,8 @@ async def crawl_restaurants(base_filename: str = FILENAME, n_cards: int = N_CARD
         total_folders = (len(urls) + n_cards - 1) // n_cards  # Round up to cover all URLs
 
         # Process each "folder" (20 URLs) concurrently
-        for page in range(1, total_folders + 1):
-            print(f"CURRENT PAGE: {page}")
+        for page in range(total_folders):
+            print(f"CURRENT PAGE: {page + 1}")
 
             # Get a subset of URLs for this page (up to 20 URLs per folder)
             start_index = page * n_cards
@@ -147,11 +147,11 @@ async def crawl_restaurants(base_filename: str = FILENAME, n_cards: int = N_CARD
             print(f"Folder {page + 1} covers URLs from {start_index} to {end_index - 1}")
 
             # Process this folder (group of 20 URLs) asynchronously with retries
-            result = await process_folder(page, page_urls)
+            result = await process_folder(page + 1, page_urls)
             if result == 0:
-                print(f"Folder {page} completed successfully.")
+                print(f"Folder {page + 1} completed successfully.")
             else:
-                print(f"Folder {page} had failures after maximum retries.")
+                print(f"Folder {page + 1} had failures after maximum retries.")
 
     except FileNotFoundError:
         print(f"Error: The file '{base_filename}' was not found.")
