@@ -2,6 +2,8 @@ import os
 import requests
 from bs4 import BeautifulSoup
 from tqdm import tqdm
+import asyncio
+from aiohttp import ClientSession
 
 # Constants
 ROOT_FOLDER = "restaurants"
@@ -45,11 +47,12 @@ def scraping(filename=FILENAME, n_pages=100):
                 continue  # Skip to the next page if there's a fetch error
 
 
-def commit_html(folder_number, restaurant_name, url) -> int:
+async def commit_html(session: ClientSession, folder_number: int, restaurant_name: str, url: str) -> int:
     """
-    Downloads and saves the HTML content of a Michelin restaurant page.
-    
+    Asynchronously downloads and saves the HTML content of a Michelin restaurant page.
+
     Args:
+        session (ClientSession): The aiohttp session for making requests.
         folder_number (int): The folder number to categorize saved HTML files.
         restaurant_name (str): The name of the restaurant, used as the filename for the HTML.
         url (str): The full URL of the Michelin restaurant page.
@@ -58,7 +61,7 @@ def commit_html(folder_number, restaurant_name, url) -> int:
         int: 0 if the HTML was downloaded and saved successfully, 1 if any exception occurred.
     """
     try:
-        # Create a directory for the specified page if it doesn't exist
+        # Create directory for specified page if it doesn't exist
         directory = os.path.join(os.getcwd(), ROOT_FOLDER, str(folder_number))
         os.makedirs(directory, exist_ok=True)
 
@@ -66,28 +69,27 @@ def commit_html(folder_number, restaurant_name, url) -> int:
         safe_restaurant_name = os.path.basename(restaurant_name)
         file_path = os.path.join(directory, f"{safe_restaurant_name}.html")
 
-        # Fetch HTML content
-        response = requests.get(url)
-        if response.status == 403:
-            print(f"403 Forbidden: Access denied for {url}")
-            return 1 # Failure
+        # Asynchronously fetch HTML content
+        async with session.get(url) as response:
+            if response.status == 403:
+                print(f"403 Forbidden: Access denied for {url}")
+                return 1  # Failure
 
-        content = response.read()
+            content = await response.read()
 
-        # Write the HTML content to the specified file
-        with open(file_path, 'wb') as file:
-            file.write(content)
-        print(f"'{url}' is saved to '{file_path}'")
-        return 0  # Success
+            # Write HTML content to specified file
+            with open(file_path, 'wb') as file:
+                file.write(content)
+            print(f"'{url}' is saved to '{file_path}'")
+            return 0  # Success
 
     except Exception as e:
         print(f"Error for {url}: {e}")
         return 1  # Failure
 
-
-def process_folder(page, urls):
+async def process_folder(page: int, urls: list):
     """
-    Processes a single folder of URLs (20 URLs), with retry for failed folders.
+    Asynchronously processes a folder of URLs (20 URLs), with retries for failed folders.
     
     Args:
         page (int): The page number corresponding to the folder.
@@ -98,22 +100,22 @@ def process_folder(page, urls):
     """
     for attempt in range(MAX_FOLDER_RETRIES):
         print(f"Processing folder {page}, attempt {attempt + 1}/{MAX_FOLDER_RETRIES}")
-        results = 0
-        for url in urls:
-            results += commit_html(page, os.path.basename(url), f"https://guide.michelin.com{url}")
+        async with ClientSession() as session:
+            # Start asynchronous tasks for the batch of URLs
+            tasks = [commit_html(session, page, os.path.basename(url), f"https://guide.michelin.com{url}") for url in urls]
+            results = await asyncio.gather(*tasks)
 
-        # Check if all URLs in the folder were successful
+        # Check if all tasks in the folder were successful
         if all(result == 0 for result in results):
             print(f"Folder {page} downloaded successfully.")
             return 0  # Success, no need to retry further
         else:
-            print(f"Some restaurants in page {page} are failed to be downloaded. Retrying...")
+            print(f"Some restaurants in page {page} failed to download. Retrying...")
 
     print(f"Folder {page} failed after {MAX_FOLDER_RETRIES} attempts.")
-    return 1
+    return 1  # Failure after max retries
 
-
-def crawl_restaurants(base_filename: str = FILENAME, n_cards: int = N_CARDS_PER_FOLDER):
+async def crawl_restaurants(base_filename: str = FILENAME, n_cards: int = N_CARDS_PER_FOLDER):
     """
     Crawls Michelin restaurant URLs from a text file and saves each page's HTML locally,
     with retries for any failed folders.
@@ -123,25 +125,29 @@ def crawl_restaurants(base_filename: str = FILENAME, n_cards: int = N_CARDS_PER_
         n_cards (int): Number of restaurant URLs to process per page.
     """
     try:
+        # Read and clean URLs from the file
         with open(base_filename, 'r') as urls_file:
             urls = [url.strip() for url in urls_file if url.strip()]
 
-        # Calculate the actual total number of folders required
+        # Calculate the total number of folders required
         total_folders = (len(urls) + n_cards - 1) // n_cards  # Round up to cover all URLs
 
-
-        # Process each "folder" (20 URLs) concurrently as separate tasks
+        # Process each "folder" (20 URLs) concurrently
         for page in range(1, total_folders + 1):
             print(f"CURRENT PAGE: {page}")
 
             # Get a subset of URLs for this page (up to 20 URLs per folder)
-            start_index = (page - 1) * n_cards
-            # Handle end of the file index
-            end_index = min(page * n_cards, len(urls))
+            start_index = page * n_cards
+            end_index = min((page + 1) * n_cards, len(urls))  # cap end_index at the last URL
+        
+            # Extract URLs for this folder, ensuring no duplicates
             page_urls = urls[start_index:end_index]
 
-            # Process this folder (group of 20 URLs) with retries
-            result = process_folder(page, page_urls)
+            # Print for debugging to verify URL range in each folder
+            print(f"Folder {page + 1} covers URLs from {start_index} to {end_index - 1}")
+
+            # Process this folder (group of 20 URLs) asynchronously with retries
+            result = await process_folder(page, page_urls)
             if result == 0:
                 print(f"Folder {page} completed successfully.")
             else:
