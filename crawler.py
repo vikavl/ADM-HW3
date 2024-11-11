@@ -143,6 +143,10 @@ async def crawl_restaurants(base_filename: str = FILENAME, n_cards: int = N_CARD
             # Extract URLs for this folder, ensuring no duplicates
             page_urls = urls[start_index:end_index]
 
+            if len(page_urls) == 0:
+                print(f"All restaurants were crawled!")
+                break
+
             # Print for debugging to verify URL range in each folder
             print(f"Folder {page + 1} covers URLs from {start_index} to {end_index - 1}")
 
