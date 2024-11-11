@@ -11,6 +11,7 @@ N_CARDS_PER_FOLDER = 20
 # Maximum retry attempts for each folder 
 MAX_FOLDER_RETRIES = 3  
 
+
 def scraping(filename=FILENAME, n_pages=100):
     """
     Crawls restaurant links from Michelin's website and saves them to a text file.
@@ -43,12 +44,12 @@ def scraping(filename=FILENAME, n_pages=100):
                 print(f"Failed to fetch {page_url}: {e}")
                 continue  # Skip to the next page if there's a fetch error
 
+
 def commit_html(folder_number, restaurant_name, url) -> int:
     """
-    Asynchronously downloads and saves the HTML content of a Michelin restaurant page.
+    Downloads and saves the HTML content of a Michelin restaurant page.
     
     Args:
-        session (aiohttp.ClientSession): The aiohttp session for managing connections.
         folder_number (int): The folder number to categorize saved HTML files.
         restaurant_name (str): The name of the restaurant, used as the filename for the HTML.
         url (str): The full URL of the Michelin restaurant page.
@@ -86,7 +87,7 @@ def commit_html(folder_number, restaurant_name, url) -> int:
 
 def process_folder(page, urls):
     """
-    Processes a single folder of URLs (20 URLs) asynchronously, with retry for failed folders.
+    Processes a single folder of URLs (20 URLs), with retry for failed folders.
     
     Args:
         page (int): The page number corresponding to the folder.
@@ -114,7 +115,7 @@ def process_folder(page, urls):
 
 def crawl_restaurants(base_filename: str = FILENAME, n_cards: int = N_CARDS_PER_FOLDER):
     """
-    Asynchronously crawls Michelin restaurant URLs from a text file and saves each page's HTML locally,
+    Crawls Michelin restaurant URLs from a text file and saves each page's HTML locally,
     with retries for any failed folders.
 
     Args:
