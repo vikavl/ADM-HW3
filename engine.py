@@ -146,7 +146,7 @@ def create_index(restaurants):
     inverted_index = defaultdict(list)
     term_id = 0
     # Loop over each document (restaurant description) by document_id
-    for document_id, description in zip(restaurants['index'], restaurants['preprocessed_description']):
+    for document_id, description in zip(restaurants.index, restaurants['preprocessed_description']):
         tokens = get_normalized_tokens(description)
 
         for word in set(tokens):
