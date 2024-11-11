@@ -82,7 +82,7 @@ def preprocess(text, word_counts, frequency_threshold=1):
     # Step 5: Apply stemming
     stemmed_words = [SnowballStemmer("english").stem(word) for word in expanded_words]
 
-    return ' '.join(stemmed_words)
+    return ' '.join(set(stemmed_words))
 
 
 def get_normalized_tokens(text):
