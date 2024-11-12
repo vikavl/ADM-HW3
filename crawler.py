@@ -27,7 +27,7 @@ def scraping(filename=FILENAME, n_pages=100):
     with open(filename, 'a') as f:
         for page_num in tqdm(range(1, n_pages + 1)):
             page_url = f"https://guide.michelin.com/en/it/restaurants/page/{page_num}"
-            print(f"Processing: {page_url}")
+            # print(f"Processing: {page_url}")
             try:
                 # Fetch and parse the listing page
                 response = requests.get(page_url)
