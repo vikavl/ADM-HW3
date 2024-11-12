@@ -255,5 +255,4 @@ def write_restaurant_data_to_tsv(output_file_path, file_paths):
             ]
 
             tsv_row = '\t'.join(row_data)
-            print(tsv_row)
             f_tsv.write(tsv_row + '\n')
