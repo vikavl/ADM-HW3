@@ -50,7 +50,7 @@ def get_address(soup):
         address_parts = [item.strip() for item in address.split(",")]
         # Return exactly four components, adding empty strings if needed
         if len(address_parts) == 5:
-            return [", ".join(address_parts[:2]), address_parts[2], address_parts[3], address_parts[4]]
+            return [remove_newline(", ".join(address_parts[:2])), address_parts[2], address_parts[3], address_parts[4]]
         elif len(address_parts) == 4:
             return address_parts
     except AttributeError:
@@ -79,9 +79,7 @@ def get_description(soup):
     Extracts the description from the HTML. Returns an empty string if not found.
     """
     try:
-        description = soup.find("div", {"class": "restaurant-details"}).find("div", {"class": "data-sheet__description"}).text.strip()
-        # Remove newline characters and replace them with a space
-        return " ".join(description.split())
+        return remove_newline(soup.find("div", {"class": "restaurant-details"}).find("div", {"class": "data-sheet__description"}).text.strip())
     except AttributeError:
         return ""
 
@@ -123,6 +121,13 @@ def get_website(soup):
     website_element = soup.find("a", {"href": True, "data-event": "CTA_website"})
     raw_url = website_element.get("href") if website_element else None
     return normalize_website_url(raw_url)
+
+def remove_newline(text):
+    """
+    Removes newline characters from the text (inlines it).
+    """
+    # Remove newline characters and replace them with a space
+    return " ".join(text.split())
 
 def list_to_string(ls):
     """
