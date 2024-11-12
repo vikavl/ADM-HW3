@@ -79,7 +79,9 @@ def get_description(soup):
     Extracts the description from the HTML. Returns an empty string if not found.
     """
     try:
-        return soup.find("div", {"class": "restaurant-details"}).find("div", {"class": "data-sheet__description"}).text.strip()
+        description = soup.find("div", {"class": "restaurant-details"}).find("div", {"class": "data-sheet__description"}).text.strip()
+        # Remove newline characters and replace them with a space
+        return " ".join(description.split())
     except AttributeError:
         return ""
 
