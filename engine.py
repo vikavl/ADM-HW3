@@ -217,7 +217,8 @@ def calculate_idf(vocabulary, restaurants):
     idf = {}
     for term in vocabulary.items():
         df_t = document_frequency[term]
-        idf[term] = np.log(N / df_t) if df_t > 0 else 0
+        # idf[term] = np.log(N / df_t) if df_t > 0 else 0
+        idf[term] = np.log(N / df_t)
 
     return idf
 
