@@ -235,6 +235,7 @@ def write_restaurant_data_to_tsv(output_file_path, file_paths):
 
     # Track processed files to avoid duplicates
     processed_files = set()
+    skipped_files = set()
     
     with open(output_file_path, 'a', encoding='utf-8') as f_tsv:
         for file_path in file_paths:
@@ -267,5 +268,13 @@ def write_restaurant_data_to_tsv(output_file_path, file_paths):
                 restaurant_data.get("website", "none")
             ]
 
-            tsv_row = '\t'.join(row_data)
-            f_tsv.write(tsv_row + '\n')
+            # Check if all values in row_data are undefined
+            if all(value in ["none", None, ""] for value in row_data):
+                skipped_files.add(file_path)
+                print(f"All values are undefined, skipping this row: {file_path}")
+            else:
+                tsv_row = '\t'.join(row_data)
+                f_tsv.write(tsv_row + '\n')
+
+    if len(skipped_files) == 0: 
+        print(f"Reprocessed files: {set.intersection(processed_files, skipped_files)}")
