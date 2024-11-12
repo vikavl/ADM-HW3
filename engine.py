@@ -50,14 +50,12 @@ def get_synonyms(word):
     return synonyms
 
 
-def preprocess(text, word_counts, frequency_threshold=1):
+def preprocess(text):
     """
     Preprocesses the given text: removes stopwords, corrects spelling,
-    expands synonyms, removes low-frequency words and applies stemming.
+    expands synonyms and applies stemming.
     Args:
         text (str): The input text.
-        word_counts (Counter): A dictionary of word frequencies across all documents.
-        frequency_threshold (int): The minimum frequency required to keep a word.
     Returns:
         str: The preprocessed text.
     """
@@ -67,11 +65,8 @@ def preprocess(text, word_counts, frequency_threshold=1):
     # Step 2: Tokenize the text in lowercase
     tokens = word_tokenize(text.lower())
 
-    # Step 3: Remove stopwords and apply low-frequency filter
-    filtered_words = [
-        word for word in tokens if word not in set(stopwords.words('english')) and
-                      word_counts[word] > frequency_threshold
-        ]
+    # Step 3: Remove stopwords
+    filtered_words = [word for word in tokens if word not in set(stopwords.words('english'))]
 
     # Step 4: Get synonyms for each word
     expanded_words = []
