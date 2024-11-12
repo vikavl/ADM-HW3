@@ -92,28 +92,6 @@ def get_normalized_tokens(text):
     return word_tokenize(re.sub(r'[^a-zA-Z\s]', '', text.lower()))
 
 
-def get_word_counts(descriptions: pd.Series) -> Counter:
-    """
-    Calculates the frequency of each word across all descriptions in the given DataFrame column.
-    Args:
-        descriptions (pd.Series): A Pandas Series containing text descriptions from each restaurant.
-
-    Returns:
-        Counter: A Counter object with each unique word as the key and its frequency across all descriptions as the value.
-    """
-    # Initialize the Counter
-    word_counts = Counter()
-    
-    # Update counter iterating over all records' descriptions
-    for description in descriptions:
-        # Remove punctuation from tokens
-        tokens = get_normalized_tokens(description)
-        # Update with tokens of the current description
-        word_counts.update(tokens)
-
-    return word_counts
-
-
 #=======================================================================================================================================
 #_________________________________________________________2. Search Engine______________________________________________________________
 
