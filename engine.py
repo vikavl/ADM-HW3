@@ -191,33 +191,25 @@ def execute(query, vocabulary, inverted_index, restaurants):
 #=======================================================================================================================================
 #______________________________2.2 Ranked Search Engine with TF-IDF and Cosine Similarity_______________________________________________
 
-def calculate_idf(vocabulary, restaurants):
+def calculate_idf(vocabulary, inverted_index):
     """
     Calculate the IDF (Inverse Document Frequency) for each term in the vocabulary.
     
     Args:
         vocabulary (dict): A dictionary where keys are terms and values are term IDs.
-        restaurants (pd.DataFrame): A DataFrame with a 'preprocessed_description' column containing the cleaned text of each document.
+        inverted_index (defaultdict): A dictionary where each key is a term ID and the corresponding value
+                                            is a list of document IDs where the term appears.
     
     Returns:
         dict: A dictionary with terms as keys and their IDF values as values.
     """
     # Total number of documents
     N = len(restaurants)  
-
-    # DOCUMENT FREQUENCY
-    document_frequency = defaultdict(int)  
-    for description in restaurants['preprocessed_description']:
-        unique_tokens = set(get_normalized_tokens(description))
-        for term in unique_tokens:
-            if term in vocabulary:
-                document_frequency[term] += 1
     
     # INVERSE DOCUMENT FREQUENCY
-    idf = {}
-    for term in vocabulary.items():
-        df_t = document_frequency[term]
-        idf[term] = np.log(N / df_t) if df_t > 0 else 0
+    # TODO fix 
+    df_t = len(inverted_index[])
+    idf = np.log(N / df_t)
 
     return idf
 
