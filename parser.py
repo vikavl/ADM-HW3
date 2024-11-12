@@ -47,7 +47,7 @@ def get_address(soup):
         address = [
             detail.text.strip() for detail in soup.find("div", {"class": "data-sheet__detail-info"}).find_all("div", {"class": "data-sheet__block--text"})
         ][0]
-        address_parts = [item.strip() for item in remove_newline(address).split(",")]
+        address_parts = [remove_newline(item.strip()) for item in address.split(",")]
         # Return exactly four components, adding empty strings if needed
         if len(address_parts) == 5:
             return [", ".join(address_parts[:2]), address_parts[2], address_parts[3], address_parts[4]]
