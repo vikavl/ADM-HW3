@@ -230,13 +230,24 @@ def write_restaurant_data_to_tsv(output_file_path, file_paths):
     if not os.path.exists(output_file_path) or os.path.getsize(output_file_path) == 0:
         with open(output_file_path, 'w', encoding='utf-8') as f_tsv:
             f_tsv.write('\t'.join(headers) + '\n')
+
+    # Track processed files to avoid duplicates
+    processed_files = set()
     
     with open(output_file_path, 'a', encoding='utf-8') as f_tsv:
         for file_path in file_paths:
+            # Skip if file has already been processed
+            if file_path in processed_files:
+                continue
+
+            # Process and extract data
             restaurant_data = extract_restaurant_data(file_path)
             if restaurant_data is None:
-                print(f"{file_path} was not parsed correctly")
+                print(f"{file_path} was not parsed correctly or returned a 403 error.")
                 continue
+
+            # Mark file as processed
+            processed_files.add(file_path)
 
             # SEt "none" placeholder
             row_data = [
