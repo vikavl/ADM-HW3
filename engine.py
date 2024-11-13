@@ -191,48 +191,49 @@ def execute(query, vocabulary, inverted_index, restaurants):
 #=======================================================================================================================================
 #______________________________2.2 Ranked Search Engine with TF-IDF and Cosine Similarity_______________________________________________
 
-def calculate_tf_idf_scores(vocabulary, inverted_index, total_documents, descriptions):
+def calculate_tf_idf_scores(inverted_index, total_documents, descriptions, vocabulary):
     """
-    Calculate TF-IDF scores for each term in each document and store them in a dictionary.
+    Calculate TF-IDF scores for each term in each document and return as a list of vectors.
     
     Args:
-        vocabulary (dict): Dictionary mapping terms to term IDs.
         inverted_index (defaultdict): Dictionary where each key is a term ID with a list of document IDs.
         total_documents (int): Total number of documents.
-        descriptions (pd.Series): Series containing document descriptions with document IDs as the index.
+        descriptions (pd.Series): Series containing document preprocessed descriptions.
+        vocabulary (dict): Dictionary of terms and their corresponding term IDs.
     
     Returns:
-        dict: Nested dictionary with {doc_id: {term: tf-idf score}}.
+        list: List of TF-IDF vectors, where each vector corresponds to a document and contains TF-IDF scores
+              for each term in the vocabulary.
     """
-    TF_IDF_scores = {}
-
-    # Calculate IDF
+    # Initialize the IDF dictionary
     IDF = {}
     for term, docs in inverted_index.items():
-        document_frequency = len(docs)  # Number of documents containing the term
-        IDF[term] = np.log(total_documents / (1 + document_frequency))  # Adding 1 to avoid division by zero
+        IDF[term] = np.log(total_documents / len(docs))
 
-    # Calculate TF-IDF
-    for doc_id, description in descriptions.items():
-        # Dictionary to store TF-IDF scores
-        doc_tf_idf = {}
+    # Prepare an empty list to store TF-IDF vectors for each document
+    tf_idf_vectors = []
 
-        # Tokenize and count TF
+    # Iterate over each document to calculate its TF-IDF vector
+    for description in descriptions:
+        # Initialize a TF-IDF vector for the current document with zeros
+        doc_vector = [0] * len(vocabulary)
+        
+        # Tokenize and count term frequencies (TF) in the document
         term_counts = Counter(get_normalized_tokens(description))
-        total_terms = len(term_counts)
+        total_terms = sum(term_counts.values())
 
-        # Calculate TF-IF for document
+        # Calculate TF-IDF scores for terms in the document
         for term, tf in term_counts.items():
-            # Check if term in idf
-            if term in IDF:
-                TF = tf / total_terms  # TF calculation
-                tf_idf_score = TF * IDF[term]  # TF-IDF calculation
-                doc_tf_idf[term] = tf_idf_score
+            if term in vocabulary and term in IDF:  # Only consider terms in vocabulary and IDF
+                term_id = vocabulary[term]  # Get the term's ID
+                TF = tf / total_terms  # Calculate TF
+                tf_idf_score = TF * IDF[term]  # Calculate TF-IDF
+                doc_vector[term_id] = tf_idf_score  # Set the score at the appropriate index
 
-        # Add TF-IDF scores
-        TF_IDF_scores[doc_id] = doc_tf_idf
+        # Append the TF-IDF vector for this document to the list
+        tf_idf_vectors.append(doc_vector)
 
-    return TF_IDF_scores
+    return tf_idf_vectors
 
 def create_tfidf_inverted_index(tf_idf_scores):
     """
