@@ -199,26 +199,40 @@ def calculate_tf_idf_scores(vocabulary, inverted_index, total_documents, descrip
         vocabulary (dict): Dictionary mapping terms to term IDs.
         inverted_index (defaultdict): Dictionary where each key is a term ID with a list of document IDs.
         total_documents (int): Total number of documents.
-        descriptions (pd.Series): Series containing the preprocessed descriptions (one per document).
+        descriptions (pd.Series): Series containing document descriptions with document IDs as the index.
     
     Returns:
         dict: Nested dictionary with {doc_id: {term: tf-idf score}}.
     """
+    TF_IDF_scores = {}
+
     # Calculate IDF
-    idf = {term: np.log(total_documents / len(inverted_index[term_id])) 
-           for term, term_id in vocabulary.items()}
-    
+    IDF = {}
+    for term, docs in inverted_index.items():
+        document_frequency = len(docs)  # Number of documents containing the term
+        IDF[term] = np.log(total_documents / (1 + document_frequency))  # Adding 1 to avoid division by zero
+
     # Calculate TF-IDF
-    tf_idf_scores = {}
-    for doc_id, doc_text in descriptions.iteritems():
-        term_counts = Counter(get_normalized_tokens(doc_text))
-        total_terms = sum(term_counts.values())
-        
-        # TF-IDF for terms with valid IDF scores
-        tf_idf_scores[doc_id] = {term: (count / total_terms) * idf[term]
-                                 for term, count in term_counts.items() if term in idf}
-    
-    return tf_idf_scores
+    for doc_id, description in descriptions.items():
+        # Dictionary to store TF-IDF scores
+        doc_tf_idf = {}
+
+        # Tokenize and count TF
+        term_counts = Counter(get_normalized_tokens(description))
+        total_terms = len(term_counts)
+
+        # Calculate TF-IF for document
+        for term, tf in term_counts.items():
+            # Check if term in idf
+            if term in IDF:
+                TF = tf / total_terms  # TF calculation
+                tf_idf_score = TF * IDF[term]  # TF-IDF calculation
+                doc_tf_idf[term] = tf_idf_score
+
+        # Add TF-IDF scores
+        TF_IDF_scores[doc_id] = doc_tf_idf
+
+    return TF_IDF_scores
 
 def create_tfidf_inverted_index(tf_idf_scores):
     """
