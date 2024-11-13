@@ -191,63 +191,32 @@ def execute(query, vocabulary, inverted_index, restaurants):
 #=======================================================================================================================================
 #______________________________2.2 Ranked Search Engine with TF-IDF and Cosine Similarity_______________________________________________
 
-def calculate_idf(vocabulary, inverted_index, total_documents):
+def calculate_tf_idf_scores(vocabulary, inverted_index, total_documents, descriptions):
     """
-    Calculate the IDF (Inverse Document Frequency) for each term in the vocabulary.
+    Calculate TF-IDF scores for each term in each document and store them in a dictionary.
     
     Args:
-        vocabulary (dict): A dictionary where keys are terms and values are term IDs.
-        inverted_index (defaultdict): A dictionary where each key is a term ID and the corresponding value
-                                      is a list of document IDs where the term appears.
-        total_documents (int): Total number of documents in the corpus.
+        vocabulary (dict): Dictionary mapping terms to term IDs.
+        inverted_index (defaultdict): Dictionary where each key is a term ID with a list of document IDs.
+        total_documents (int): Total number of documents.
+        descriptions (pd.Series): Series containing the preprocessed descriptions (one per document).
     
     Returns:
-        dict: A dictionary with terms as keys and their IDF values as values.
+        dict: Nested dictionary with {doc_id: {term: tf-idf score}}.
     """
-    idf_scores = {}
+    # Calculate IDF
+    idf = {term: np.log(total_documents / len(inverted_index[term_id])) 
+           for term, term_id in vocabulary.items()}
     
-    # Calculate IDF for each term
-    for term, term_id in vocabulary.items():
-        # Document frequency (number of documents containing the term)
-        df_t = len(inverted_index[term_id]) if term_id in inverted_index else 0
-        
-        # Avoid division by zero: if df_t is 0, we assign 0 IDF
-        idf = np.log((total_documents / (df_t + 1))) if df_t > 0 else 0
-
-        idf_scores[term] = idf
-
-    return idf_scores
-
-
-def calculate_tf_idf_scores(restaurants, idf):
-    """
-    Calculate TF-IDF scores for each term in each document and store in a dictionary.
-    
-    Args:
-        restaurants (pd.DataFrame): DataFrame with preprocessed descriptions.
-        idf (dict): A dictionary with terms as keys and their IDF values as values.
-    
-    Returns:
-        tf_idf_scores (dict): Dictionary of TF-IDF scores for each term in each document.
-        Format: {doc_id: {term: tf-idf score}}
-    """
+    # Calculate TF-IDF
     tf_idf_scores = {}
-    
-    # Iterate over each document to calculate TF-IDF
-    for doc_id, description in restaurants['preprocessed_description'].iteritems():
-        # Calculate term frequency (TF)
-        term_counts = Counter(get_normalized_tokens(description))  
-        doc_tf_idf = {}
+    for doc_id, doc_text in descriptions.iteritems():
+        term_counts = Counter(get_normalized_tokens(doc_text))
+        total_terms = sum(term_counts.values())
         
-        # Calculate TF-IDF for each term in the document
-        for term, tf in term_counts.items():
-            # Check if term has an IDF score
-            if term in idf:
-                # TF * IDF
-                tf_idf_score = tf * idf[term]
-                doc_tf_idf[term] = tf_idf_score
-                
-        tf_idf_scores[doc_id] = doc_tf_idf
+        # TF-IDF for terms with valid IDF scores
+        tf_idf_scores[doc_id] = {term: (count / total_terms) * idf[term]
+                                 for term, count in term_counts.items() if term in idf}
     
     return tf_idf_scores
 
