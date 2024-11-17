@@ -1,0 +1,874 @@
+city	region	latitude	longitude
+Rome	Lazio		
+Milan	Lombardy		
+Naples	Campania		
+Turin	Piedmont		
+Palermo	Sicily	38.1321	13.3356
+Genoa	Liguria		
+Bologna	Emilia-Romagna	44.4938	11.3387
+Florence	Tuscany		
+Venice	Veneto		
+Verona	Veneto	45.4299	10.9844
+Bari	Apulia	41.1115	16.8554
+Catania	Sicily	37.4922	15.0704
+Pisa	Tuscany	43.7085	10.4036
+Parma	Emilia-Romagna	44.7994	10.3262
+Trieste	Friuli Venezia Giulia	45.6495	13.7768
+Modena	Emilia-Romagna	44.6478	10.9254
+Perugia	Umbria	43.1122	12.3888
+Ravenna	Emilia-Romagna	44.4134	12.2012
+Ferrara	Emilia-Romagna	44.838	11.6206
+Ancona	Marche	43.5942	13.5034
+Lecce	Apulia	40.3548	18.1724
+Bergamo	Lombardy	45.696	9.6672
+Trento	Trentino-Alto Adige	46.0679	11.1211
+Bolzano	Trentino-Alto Adige	46.4907	11.3398
+Udine	Friuli Venezia Giulia	46.0693	13.2371
+Salerno	Campania	40.6755	14.7933
+Reggio Calabria	Calabria	38.1105	15.6613
+Messina	Sicily	38.1939	15.5526
+Livorno	Tuscany	43.5443	10.3262
+Cagliari	Sardinia	39.2305	9.1192
+Sassari	Sardinia	40.7259	8.5555
+Rimini	Emilia-Romagna	44.0575	12.5653
+Marina di Casal Velino	Campania		
+Alba	Piedmont	44.6999	8.0347
+Sorrento	Campania	40.6238	14.381
+Matera	Basilicata	40.666	16.6046
+Cervesina	Lombardy	45.0605	9.0168
+Popoli	Abruzzo	42.1687	13.83
+Bibbiena	Tuscany	43.6988	11.8147
+Cesenatico	Emilia-Romagna	44.1999	12.3991
+Castiglione della Pescaia	Tuscany		
+Trescore Balneario	Lombardy	45.6941	9.8417
+Gragnano	Campania	40.6891	14.5204
+Gragnano	Campania	43.8673	10.6454
+Noceto	Emilia-Romagna	44.8095	10.1773
+Fossò	Veneto		
+Cava de' Tirreni	Campania		
+San Casciano dei Bagni	Tuscany		
+Pieve d'Alpago	Veneto		
+Ponza	Lazio	40.8954	12.9589
+Mules	Trentino-Alto Adige	46.8536	11.5214
+Senago	Lombardy	45.5756	9.1262
+Laveno	Lombardy	45.9089	8.6204
+Isera	Trentino-Alto Adige	45.8876	11.0092
+Alghero	Sardinia	40.5597	8.3195
+Lucarelli	Tuscany	43.5177	11.3123
+Stresa	Piedmont	45.8816	8.5383
+Savona	Liguria	44.309	8.4772
+Cavi di Lavagna	Liguria		
+Vico Equense	Campania	40.6598	14.4339
+Pescara	Abruzzo	42.4584	14.2028
+Cuneo	Piedmont	44.3907	7.5483
+Loreto	Marche	45.696	9.6672
+Loreto	Marche	43.4362	13.6123
+San Giuliano Milanese	Lombardy	45.394	9.2911
+Barate	Lombardy		
+Lucca	Tuscany	43.8437	10.5045
+Pieve di Cento	Emilia-Romagna		
+Dossobuono	Veneto	45.3933	10.9105
+Monfumo	Veneto	45.8308	11.9203
+Paestum	Campania	40.4223	15.0073
+Marina di Pietrasanta	Tuscany		
+Suvereto	Tuscany	43.0767	10.6774
+Moniga del Garda	Lombardy		
+Forte dei Marmi	Tuscany		
+Monforte d'Alba	Piedmont		
+Spilimbergo	Friuli Venezia Giulia	46.1134	12.8924
+Limone Piemonte	Piedmont	44.2009	7.5786
+Novara	Piedmont	45.4469	8.6212
+Putignano	Apulia	40.8511	17.1219
+Putignano	Apulia	43.6766	10.4046
+Orbassano	Piedmont	45.0055	7.5381
+Santa Vittoria d'Alba	Piedmont		
+Sansepolcro	Tuscany	43.5726	12.1386
+Moena	Trentino-Alto Adige	46.3765	11.6594
+Castiglione delle Stiviere	Lombardy		
+Ranco	Lombardy	45.7973	8.5711
+Marina di Pulsano	Apulia		
+San Severo	Apulia	44.3688	11.9013
+San Severo	Apulia	41.6856	15.3815
+Marostica	Veneto	45.7454	11.6624
+Sappada	Veneto	46.5666	12.6842
+Rubano	Veneto	45.4251	11.7915
+Fagnano Olona	Lombardy	45.6698	8.8599
+Tricesimo	Friuli Venezia Giulia	46.1606	13.2157
+Riva del Garda	Trentino-Alto Adige		
+Spirano	Lombardy	45.5814	9.6686
+Positano	Campania	40.6283	14.4843
+Villandro	Trentino-Alto Adige	46.6309	11.5381
+Spoleto	Umbria	42.7407	12.739
+Gaiole in Chianti	Tuscany		
+Telese	Campania		
+Fiera di Primiero	Trentino-Alto Adige		
+Minervino Murge	Apulia	41.0826	16.0786
+Pesaro	Marche	43.9092	12.9164
+Induno Olona	Lombardy	45.8457	8.8406
+La Morra	Piedmont	44.6379	7.9308
+Santa Reparata	Tuscany	44.1595	11.7929
+Oneglia	Liguria	43.8903	8.0434
+Godia	Friuli Venezia Giulia	46.1014	13.2678
+Suna	Piedmont		
+Furore	Campania	40.6206	14.549
+Castelnuovo Berardenga	Tuscany	43.3455	11.5004
+Gallarate	Lombardy	45.6602	8.7916
+Sasso Marconi	Emilia-Romagna	44.4006	11.2518
+Melizzano	Campania	41.1618	14.5055
+Santa Marina Salina	Sicily	38.5612	14.8708
+San Mauro a Mare	Emilia-Romagna		
+Galliate	Piedmont	45.4794	8.6982
+Montebenichi	Tuscany		
+Sant'Omobono Terme	Lombardy	45.8084	9.5362
+Scorzè	Veneto		
+Taormina	Sicily	37.8536	15.2885
+Val Liona	Veneto		
+Polesine Parmense	Emilia-Romagna	45.0168	10.0902
+Domodossola	Piedmont	46.1165	8.2931
+Pizzighettone	Lombardy	45.1869	9.7878
+San Marzano Oliveto	Piedmont	44.7544	8.2953
+Pozza di Fassa	Trentino-Alto Adige		
+Finale Emilia	Emilia-Romagna	44.8337	11.2938
+Lipari	Sicily	38.4674	14.954
+Fano	Marche	43.8405	13.0167
+Licata	Sicily	37.1027	13.9397
+Montecchio Precalcino	Veneto	45.6657	11.5636
+Monselice	Veneto	45.239	11.7498
+Montà	Piedmont		
+Pizzo	Calabria	38.7526	16.187
+Pozzolengo	Lombardy	45.4052	10.6304
+San Miniato	Tuscany	43.6933	10.8412
+Syracuse	Sicily		
+Masio	Piedmont	44.8696	8.4077
+Sondrio	Lombardy	46.1685	9.8713
+Norcia	Umbria	42.7911	13.096
+Pisciotta	Campania	40.1089	15.2346
+Grezzana	Veneto	45.5227	11.0174
+Noli	Liguria	44.2061	8.4146
+Ragusa	Sicily	36.9257	14.7244
+Olivola	Piedmont	45.0373	8.3678
+Faenza	Emilia-Romagna	44.2901	11.8795
+Lerici	Liguria	44.0759	9.9112
+Grosseto	Tuscany	42.763	11.1094
+Marzamemi	Sicily	36.7152	15.0902
+Levanto	Liguria	44.1742	9.6167
+Nola	Campania	40.9261	14.5282
+Porto Torres	Sardinia	40.8338	8.4053
+Commezzadura	Trentino-Alto Adige	46.3217	10.8396
+Algund	Trentino-Alto Adige	46.6811	11.1257
+Imperia	Liguria	43.8892	8.0393
+Noto	Sicily	36.8924	15.0698
+Senigallia	Marche	43.7163	13.2088
+Lallio	Lombardy	45.6628	9.6289
+Cercemaggiore	Molise	41.4613	14.724
+Chieti	Abruzzo	42.3483	14.1649
+Santa Maria Maggiore	Piedmont	46.1368	8.4611
+Agnone	Molise	41.8104	14.3752
+Selva di Val Gardena	Trentino-Alto Adige		
+Chiusi	Tuscany	43.0142	11.9479
+Stradella	Lombardy	45.1724	10.8733
+Stradella	Lombardy	45.0744	9.3017
+Fossombrone	Marche	43.6902	12.8117
+Urbino	Marche	43.7262	12.6363
+Barco	Emilia-Romagna	44.6883	10.4958
+Barco	Emilia-Romagna	45.8189	12.6717
+Barco	Emilia-Romagna	46.004	11.3384
+Céres	Piedmont		
+Vieste	Apulia	41.8821	16.1714
+Castellina in Chianti	Tuscany		
+Grinzane Cavour	Piedmont	44.6533	7.995
+Brixen	Trentino-Alto Adige	46.715	11.656
+Maglie	Apulia	40.1207	18.298
+Serralunga d'Alba	Piedmont		
+San Leone	Sicily	39.1555	8.9852
+Fiumicino	Lazio	41.7709	12.2366
+Cureggio	Piedmont	45.6749	8.4597
+Monte Sant'Angelo	Apulia	41.5117	15.1161
+Vicopisano	Tuscany	43.6931	10.5836
+Merano	Trentino-Alto Adige	46.6682	11.1595
+Montalcino	Tuscany	43.054	11.4885
+Toblach	Trentino-Alto Adige	46.7288	12.2222
+Sorni	Trentino-Alto Adige		
+Limito	Lombardy	45.4824	9.3289
+Sorico	Lombardy	46.1726	9.384
+Gussago	Lombardy	45.5836	10.1572
+Linguaglossa	Sicily	37.8424	15.1377
+Savelletri	Apulia	40.8746	17.4087
+Montemonaco	Marche	42.8987	13.3302
+Legnano	Lombardy	45.5979	8.9151
+Follina	Veneto	45.9535	12.1198
+Valledoria	Sardinia	40.9287	8.8232
+San Felice del Benaco	Lombardy		
+Forno di Zoldo	Veneto		
+Coloreto	Emilia-Romagna		
+Tregnago	Veneto	45.514	11.1642
+Bianzone	Lombardy	46.1867	10.1093
+Acqualagna	Marche	43.6261	12.676
+Colle di Val d'Elsa	Tuscany		
+Altissimo	Veneto	45.6143	11.2519
+Aprica	Lombardy	46.1522	10.1488
+Pergine Valsugana	Trentino-Alto Adige	46.0643	11.2376
+Garda	Veneto	45.5789	10.7176
+Torrita di Siena	Tuscany		
+Marne	Lombardy		
+Cortona	Tuscany	43.2747	11.9853
+Montegridolfo	Marche	43.8583	12.69
+Fiesole	Tuscany	43.8045	11.2949
+Aversa	Campania	40.9726	14.2074
+Livigno	Lombardy	46.5363	10.1335
+San Martino di Castrozza	Trentino-Alto Adige		
+Manfredonia	Apulia	41.6307	15.9188
+Isola Sant'Antonio	Piedmont	45.0302	8.8493
+Piadena	Lombardy	45.1286	10.371
+Termoli	Molise	41.9999	14.9939
+Madesimo	Lombardy	46.4381	9.3588
+Fasano del Garda	Lombardy		
+Cetona	Tuscany	42.9666	11.9027
+Quarona	Piedmont	45.7604	8.2675
+Montemagno	Piedmont	44.9831	8.3253
+Montemagno	Piedmont	43.9096	10.3398
+Montemagno	Piedmont	43.7195	10.5354
+Montemagno	Piedmont	43.8465	10.9395
+Riposto	Sicily	37.7318	15.2058
+Settequerce	Trentino-Alto Adige	46.5111	11.2648
+Forlì	Emilia-Romagna	44.2218	12.0414
+Cassinetta di Lugagnano	Lombardy		
+Vigano	Lombardy	45.382	9.0293
+Frascati	Lazio	41.8091	12.6794
+Manerba del Garda	Lombardy		
+Boves	Piedmont	44.3298	7.5473
+Dogliani	Piedmont	44.5333	7.9451
+Dolegna del Collio	Friuli Venezia Giulia		
+Torbole	Trentino-Alto Adige	45.8759	10.8911
+Ariano Irpino	Campania	41.1602	15.1063
+Giulianova Lido	Abruzzo		
+Ponte dell'Olio	Emilia-Romagna		
+Viareggio	Tuscany	43.8669	10.2502
+Fagagna	Friuli Venezia Giulia	46.107	13.0936
+Marciana Marina	Tuscany	42.8026	10.1949
+Pfalzen	Trentino-Alto Adige	46.8136	11.8831
+Monticelli d'Ongina	Emilia-Romagna		
+Montecarlo	Tuscany	43.8522	10.6674
+Padenghe sul Garda	Lombardy		
+Roccaraso	Abruzzo	41.8487	14.0785
+Miane	Veneto	45.9434	12.0925
+Milazzo	Sicily	38.2201	15.2402
+San Vigilio di Marebbe	Trentino-Alto Adige		
+Isola Vulcano	Sicily		
+Latina	Lazio	41.4661	12.9043
+Marina di San Vito	Abruzzo		
+La Spezia	Liguria	44.103	9.8238
+Moncalieri	Piedmont	44.9994	7.6824
+Asiago	Veneto	45.8759	11.5122
+Courmayeur	Aosta Valley	45.7966	6.9689
+Tavagnacco	Friuli Venezia Giulia	46.1098	13.2225
+Palazzolo Acreide	Sicily	37.0626	14.9059
+Marotta	Marche	43.7989	13.0945
+Rubbianino	Emilia-Romagna		
+Marina di Cecina	Tuscany		
+Fondi	Lazio	41.3579	13.4272
+Barcuzzi	Lombardy		
+Bobbio	Emilia-Romagna	44.7683	9.3841
+Isola d'Asti	Piedmont		
+Roletto	Piedmont	44.9244	7.3323
+San Giovanni in Persiceto	Emilia-Romagna		
+Montoggio	Liguria	44.517	9.0492
+Piobesi d'Alba	Piedmont		
+Mariano del Friuli	Friuli Venezia Giulia		
+Gsies	Trentino-Alto Adige		
+Origgio	Lombardy	45.5968	9.0164
+Monticelli Brusati	Lombardy	45.6348	10.1003
+Loro Ciuffenna	Tuscany	43.5883	11.6288
+Pollone	Piedmont	45.5798	8.0059
+Pitigliano	Tuscany	42.6358	11.6746
+Orbetello	Tuscany	42.4416	11.2214
+Pordenone	Friuli Venezia Giulia	45.9569	12.6605
+Marina di Massa	Tuscany		
+Terranova di Pollino	Basilicata		
+Portoscuso	Sardinia	39.2074	8.3809
+Issengo	Trentino-Alto Adige		
+Pinerolo	Piedmont	44.8853	7.3314
+Vercelli	Piedmont	45.3216	8.4199
+Oviglio	Piedmont	44.8612	8.4877
+Recco	Liguria	44.3623	9.1435
+Pietrasanta	Tuscany	43.9595	10.2278
+Cremona	Lombardy	45.1332	10.0213
+Mergozzo	Piedmont	45.9623	8.454
+Rivodutri	Lazio	42.5168	12.856
+Negrar	Veneto	45.5292	10.939
+Salò	Lombardy		
+Finale Ligure	Liguria	44.1695	8.3436
+Pacentro	Abruzzo	42.0504	13.9915
+Velo Veronese	Veneto	45.6067	11.0952
+Galliera Veneta	Veneto	45.6675	11.8222
+Vedole	Emilia-Romagna		
+Madonna di Campiglio	Trentino-Alto Adige		
+San Vincenzo	Tuscany	44.7388	11.4367
+San Vincenzo	Tuscany	43.0906	10.5425
+Sant'Anna	Tuscany	38.9343	17.0573
+Sant'Anna	Tuscany	38.4964	16.1103
+Sant'Anna	Tuscany	40.7328	14.7116
+Sant'Anna	Tuscany	44.3533	9.2181
+Sant'Anna	Tuscany	45.5352	10.0025
+Sant'Anna	Tuscany	46.1735	9.8555
+Sant'Anna	Tuscany	44.3715	7.4135
+Sant'Anna	Tuscany	46.0899	8.3424
+Sant'Anna	Tuscany	39.8136	8.6489
+Sant'Anna	Tuscany	37.5595	13.2347
+Sant'Anna	Tuscany	45.1661	12.2736
+Casaglia	Emilia-Romagna	44.4308	11.3476
+Casaglia	Emilia-Romagna	44.0378	11.5178
+Barbian	Trentino-Alto Adige	46.6304	11.4693
+Ruvo di Puglia	Apulia		
+Revine	Veneto	45.9994	12.2556
+Montemerano	Tuscany	42.6226	11.4903
+Ostuni	Apulia	40.7291	17.5768
+Lavello	Basilicata	41.0477	15.7891
+Rablà	Trentino-Alto Adige		
+Orvieto	Umbria	42.7192	12.1125
+Moltrasio	Lombardy	45.86	9.0984
+Dovera	Lombardy	45.3643	9.5445
+Garbagnate Milanese	Lombardy	45.5744	9.0754
+San Polo di Piave	Veneto		
+Fidenza	Emilia-Romagna	44.8669	10.0604
+Seregno	Lombardy	45.65	9.2055
+Sclafani Bagni	Sicily	37.8217	13.8548
+Gaibana	Emilia-Romagna		
+Mutignano	Abruzzo	42.5879	14.0347
+Loano	Liguria	44.1278	8.2574
+Pineto	Abruzzo	42.6088	14.0664
+Riva di Solto	Lombardy		
+Ardenza	Tuscany	43.5167	10.3167
+Trani	Apulia	41.2773	16.4101
+Valsolda	Lombardy	46.0522	9.2108
+Malfa	Sicily	38.5773	14.836
+Quarto	Campania	40.8782	14.1435
+Quarto	Campania	43.8917	12.0867
+Quarto	Campania	44.9969	9.6635
+Mornago	Lombardy	45.7452	8.7505
+Brunico	Trentino-Alto Adige	46.7994	11.9343
+Sestri Levante	Liguria	44.2732	9.3968
+Castel Maggiore	Emilia-Romagna	44.5771	11.3607
+Saint-Vincent	Aosta Valley		
+Castelvetro di Modena	Emilia-Romagna		
+Santarcangelo di Romagna	Emilia-Romagna		
+Riomaggiore	Liguria	44.0998	9.7387
+Ladispoli	Lazio	41.9507	12.075
+Vairano Patenora	Campania	41.337	14.1311
+Lamezia Terme	Calabria	38.9626	16.3094
+Agrigento	Sicily	37.3107	13.5766
+Alberobello	Apulia	40.7845	17.2362
+Fiorano Modenese	Emilia-Romagna	44.5389	10.8117
+Varena	Trentino-Alto Adige	46.3067	11.4583
+Vasto	Abruzzo	42.1115	14.7065
+Annone Veneto	Veneto	45.7896	12.6865
+Prato	Tuscany	44.7159	10.748
+Prato	Tuscany	43.8805	11.097
+Revere	Lombardy	45.0521	11.1306
+Guarene	Piedmont	44.74	8.0351
+Como	Lombardy	45.8082	9.0832
+Altare	Liguria	44.3357	8.3341
+Sant'Agostino	Emilia-Romagna	44.7922	11.3852
+Sant'Agostino	Emilia-Romagna	45.3693	11.851
+Zelarino	Veneto	45.5151	12.2079
+San Donato in Poggio	Tuscany		
+Nals	Trentino-Alto Adige	46.5434	11.2062
+Capolago	Lombardy	45.7938	8.8099
+Sernaglia della Battaglia	Veneto		
+Palazzolo sull'Oglio	Lombardy		
+Tavarnelle Val di Pesa	Tuscany		
+Marzocca	Marche	43.6745	13.2909
+Ortisei	Trentino-Alto Adige	46.576	11.6718
+Levico Terme	Trentino-Alto Adige	46.0122	11.3043
+Villa di Chiavenna	Lombardy		
+Rivalta Trebbia	Emilia-Romagna		
+Massa Lubrense	Campania	40.6094	14.372
+Sarentino	Trentino-Alto Adige	46.6412	11.3541
+Cuorgnè	Piedmont		
+Montescudaio	Tuscany	43.326	10.626
+Casole d'Elsa	Tuscany		
+Rieti	Lazio	42.4048	12.8574
+Varzi	Lombardy	44.823	9.1976
+Morciano di Romagna	Emilia-Romagna		
+Jesolo	Veneto		
+Desenzano del Garda	Lombardy		
+Santo Stefano Belbo	Piedmont	44.7102	8.2327
+Aldino	Trentino-Alto Adige	46.3658	11.3551
+Trofarello	Piedmont	44.9824	7.7469
+Marlengo	Trentino-Alto Adige	46.6526	11.1455
+Barzago	Lombardy	45.7555	9.3142
+Termeno sulla Strada del Vino	Trentino-Alto Adige		
+Guardiagrele	Abruzzo	42.1941	14.2194
+San Genesio Atesino	Trentino-Alto Adige	46.5346	11.3297
+Trezzano sul Naviglio	Lombardy		
+Noventa	Veneto		
+Santa Maria del Monte	Lazio		
+Ponte San Pietro	Lombardy	45.706	9.5905
+Ponte San Pietro	Lombardy	43.8667	10.45
+Vipiteno	Trentino-Alto Adige	46.8931	11.4296
+Serravalle Langhe	Piedmont	44.5599	8.0594
+Pellio Intelvi	Lombardy	45.9799	9.0586
+Vibo Valentia Marina	Calabria	38.7167	16.1167
+Ravina	Trentino-Alto Adige	46.0394	11.1122
+Maranello	Emilia-Romagna	44.531	10.8689
+Feltre	Veneto	46.0209	11.9003
+Pigna	Liguria	43.932	7.6612
+Randazzo	Sicily	37.8774	14.9501
+Tirol	Trentino-Alto Adige	46.6461	11.17
+Cortina Vecchia	Veneto		
+Mercenasco	Piedmont	45.36	7.8801
+Velo	Veneto	45.7735	11.5656
+Vigevano	Lombardy	45.3141	8.8544
+Vetrego	Veneto	45.4569	12.1016
+Quartiere di Portomaggiore	Emilia-Romagna		
+Erbusco	Lombardy	45.5987	9.9719
+Rastignano	Emilia-Romagna	44.4362	11.3569
+Pompei	Campania	40.7457	14.497
+Fagnano	Lombardy	43.8581	10.4897
+Pianiga	Veneto	45.4571	12.0076
+Piazza Armerina	Sicily	37.3842	14.3692
+Oderzo	Veneto	45.7811	12.4944
+Lacco Ameno	Campania	40.749	13.8872
+Ovada	Piedmont	44.6373	8.642
+Marina di Bibbona	Tuscany		
+Salgareda	Veneto	45.705	12.4883
+Monastier di Treviso	Veneto		
+Varigotti	Liguria	44.182	8.3954
+Saint Martin in Passeier	Trentino-Alto Adige		
+Molini	Trentino-Alto Adige	41.061	15.2316
+Morimondo	Lombardy	45.3538	8.9563
+Bigolino	Veneto	45.8667	12.0169
+Manoppello Scalo	Abruzzo	42.3076	14.0536
+Tisens	Trentino-Alto Adige	46.5654	11.1694
+Modica	Sicily	36.8587	14.7597
+Marano Lagunare	Friuli Venezia Giulia	45.7635	13.1673
+Mosciano Sant'Angelo	Abruzzo	42.747	13.8889
+Tigliole	Piedmont	44.8862	8.0766
+Somma Lombardo	Lombardy	45.6821	8.7076
+Crandola Valsassina	Lombardy	46.0233	9.3791
+Postal	Trentino-Alto Adige	46.6095	11.1931
+Ne	Liguria	44.3556	9.3879
+Galeata	Emilia-Romagna	43.9961	11.9106
+Forio	Campania	40.7376	13.86
+Valmadrera	Lombardy	45.8463	9.3582
+San Salvo Marina	Abruzzo	42.0704	14.766
+Rognano	Lombardy	45.2885	9.0902
+Volterra	Tuscany	43.4025	10.8615
+San Giorgio della Richinvelda	Friuli Venezia Giulia		
+Torre del Greco	Campania		
+Montemarciano	Marche	43.6385	13.308
+Asola	Lombardy	45.2202	10.4121
+Castelfranco Emilia	Emilia-Romagna	44.5945	11.0498
+Porto Azzurro	Tuscany	42.7675	10.3972
+Pudiano	Lombardy		
+Salsomaggiore Terme	Emilia-Romagna	44.8159	9.9864
+Vello	Lombardy		
+Malcesine	Veneto	45.7614	10.8086
+Lesa	Piedmont	45.8207	8.5596
+Novafeltria	Emilia-Romagna	43.8949	12.2889
+San Bonifacio	Veneto	45.3959	11.2735
+Lido di Camaiore	Tuscany		
+Massa	Tuscany	39.9838	15.7453
+Massa	Tuscany	41.2669	14.5084
+Massa	Tuscany	43.188	12.9314
+Massa	Tuscany	44.0354	10.1393
+Manciano	Tuscany	43.3363	11.8858
+Manciano	Tuscany	42.5888	11.5181
+Montone	Umbria	42.7665	13.9217
+Montone	Umbria	43.3608	12.3235
+Lesina	Apulia	41.8612	15.3532
+Levizzano Rangone	Emilia-Romagna	44.4855	10.9098
+Stromboli	Sicily	38.803	15.2381
+Padua	Veneto		
+Galluzzo	Tuscany	43.7377	11.2253
+Corrubbio	Veneto	45.5751	11.0132
+Ossana	Trentino-Alto Adige	46.3065	10.7376
+Romano d'Ezzelino	Veneto		
+Fara Filiorum Petri	Abruzzo	42.2415	14.1803
+Montepagano	Abruzzo	42.6768	13.9897
+Carloforte	Sardinia	39.1408	8.3039
+Ravalle	Emilia-Romagna		
+Crispiano	Apulia	40.6038	17.2329
+Revigliasco	Piedmont	45.0159	7.7331
+Mantua	Lombardy		
+Cervia	Emilia-Romagna	44.262	12.3481
+Monopoli	Apulia	40.9559	17.2896
+San Vito lo Capo	Sicily		
+San Zeno di Montagna	Veneto		
+Orta San Giulio	Piedmont	45.7973	8.4144
+Recorfano	Umbria		
+Cogne	Aosta Valley	45.6074	7.358
+Tortona	Piedmont	44.8978	8.8637
+Monza	Lombardy	45.5801	9.2725
+Marina di Pisa	Tuscany		
+San Donà di Piave	Veneto		
+Teglio	Lombardy	46.1723	10.064
+Ventimiglia	Liguria	43.7896	7.6087
+Melfi	Basilicata	40.9957	15.6558
+Madonna di Senales	Trentino-Alto Adige		
+Maratea	Basilicata	39.9993	15.7154
+Paradiso di Pocenia	Friuli Venezia Giulia		
+Crema	Lombardy	45.3626	9.6818
+Mirano	Veneto	45.4946	12.1077
+Quarto d'Altino	Veneto		
+Palmi	Calabria	38.3594	15.8515
+Priocca	Piedmont	44.7862	8.0642
+Osio Sotto	Lombardy	45.6161	9.5891
+San Maurizio Canavese	Piedmont	45.2171	7.6305
+Palau	Sardinia	41.1794	9.3819
+Mantello	Lombardy	46.1525	9.4889
+Traversella	Piedmont	45.5091	7.7494
+Lampedusa	Sicily	37.516	13.3265
+Pastrengo	Veneto	45.4959	10.799
+Villa San Giovanni	Calabria	42.3384	14.0263
+Villa San Giovanni	Calabria	38.2199	15.6369
+Labico	Lazio	41.7926	12.8713
+Ghirlanda	Tuscany	43.0558	10.9025
+Marlia	Tuscany	43.8924	10.5571
+Monteu Roero	Piedmont	44.7806	7.9338
+Marina di Arbus	Sardinia		
+San Benedetto del Tronto	Marche		
+Rocella Jonica	Calabria		
+Besenzone	Emilia-Romagna	44.9869	9.956
+Gargnano	Lombardy	45.6859	10.6587
+Sant'Agata sui Due Golfi	Campania		
+Giustino	Trentino-Alto Adige	46.1513	10.7678
+Vallesaccarda	Campania	41.0631	15.2521
+Villa d'Almè	Lombardy		
+Tivoli	Lazio	41.9595	12.8016
+Mazzorbo	Veneto	45.4873	12.4101
+Vodo di Cadore	Veneto		
+Taranto	Apulia	40.4644	17.2471
+Vinci	Tuscany	43.7813	10.9237
+Mercato San Severino	Campania	40.7847	14.7537
+Malnate	Lombardy	45.7938	8.881
+Todi	Umbria	42.7788	12.412
+San Paolo d'Argon	Lombardy		
+Trequanda	Tuscany	43.1875	11.6682
+Lecco	Lombardy	45.8559	9.397
+Poggibonsi	Tuscany	43.4706	11.148
+San Pellegrino	Trentino-Alto Adige	44.6913	10.6404
+San Pellegrino	Trentino-Alto Adige	44.0053	10.4367
+San Pellegrino	Trentino-Alto Adige	44.0633	10.9687
+San Pellegrino	Trentino-Alto Adige	43.2645	12.7383
+Burano	Veneto	45.4855	12.417
+Nerviano	Lombardy	45.5534	8.9792
+San Desiderio	Liguria	44.4228	9.0142
+San Desiderio	Liguria	44.9918	8.2804
+Manduria	Apulia	40.399	17.6373
+Treviso	Veneto	45.6667	12.2416
+Nocera Superiore	Campania	40.7425	14.6745
+Castelnovo di Baganzola	Emilia-Romagna		
+Milano Marittima	Emilia-Romagna		
+Le Ferriere	Lazio	41.5161	12.7579
+Cutigliano	Tuscany	44.1006	10.7562
+Soiano del Lago	Lombardy		
+San Vigilio	Trentino-Alto Adige	45.6081	10.1944
+San Vigilio	Trentino-Alto Adige	46.6988	11.931
+San Giovanni al Natisone	Friuli Venezia Giulia		
+Pettenasco	Piedmont	45.8166	8.407
+Lido di Jesolo	Veneto		
+Magliano Sabina	Lazio	42.3657	12.4852
+Fermo	Marche	42.829	13.58
+Racale	Apulia	39.9609	18.0915
+San Pancrazio	Apulia	44.3581	12.0785
+San Pancrazio	Apulia	45.6141	9.9368
+San Pancrazio	Apulia	43.6282	11.142
+San Pancrazio	Apulia	46.586	11.0857
+Olgiate Olona	Lombardy	45.6371	8.8815
+Bagnolo	Lombardy	42.8404	11.6179
+Bagnolo	Lombardy	45.9112	12.2731
+Bagnolo	Lombardy	45.4415	11.6152
+Bagnolo	Lombardy	45.2724	10.8908
+Vicomero di Torrile	Emilia-Romagna		
+Oliena	Sardinia	40.2762	9.4019
+Pegli	Liguria	44.4244	8.8121
+Grumello del Monte	Lombardy		
+Cetara	Campania	40.6476	14.7009
+Vallo della Lucania	Campania		
+Reggio Emilia	Emilia-Romagna	44.6983	10.6312
+Argelato	Emilia-Romagna	44.6401	11.3436
+Civitella Casanova	Abruzzo	42.3639	13.8851
+Varese	Lombardy	45.8206	8.8251
+Lusia	Veneto	45.0985	11.6651
+Sauris	Friuli Venezia Giulia	46.4662	12.7085
+Porto Cervo	Sardinia	41.1406	9.5327
+Mortegliano	Friuli Venezia Giulia	45.9455	13.1726
+Pantelleria	Sicily	38.0049	12.7136
+Porto Ercole	Tuscany	42.4017	11.2052
+Quistello	Lombardy	45.0079	10.9838
+Col San Martino	Veneto	45.9002	12.1158
+Cioccaro	Piedmont		
+Pietra Ligure	Liguria	44.1492	8.2821
+Paderno del Grappa	Veneto		
+Fontanafredda	Friuli Venezia Giulia	41.2846	13.9611
+Fontanafredda	Friuli Venezia Giulia	45.9756	12.5683
+Monfalcone	Friuli Venezia Giulia	45.8046	13.5329
+San Michele al Tagliamento	Veneto		
+Portofino	Liguria	44.3035	9.2094
+Aosta	Aosta Valley	45.7376	7.3172
+Santa Maria Annunziata	Tuscany		
+Nizza Monferrato	Piedmont	44.7742	8.3578
+Pomezia	Lazio	41.6693	12.5012
+Isola di Capo Rizzuto	Calabria		
+Termini Imerese	Sicily	37.9823	13.6973
+Santa Maria di Sala	Veneto		
+Lavagna	Liguria	44.3062	9.3538
+Gattinara	Piedmont	45.6131	8.3646
+Gambolò	Lombardy		
+Lezzeno	Lombardy	45.9441	9.1849
+Sarche di Madruzzo	Trentino-Alto Adige		
+Polignano a Mare	Apulia		
+Gavi	Piedmont	44.6863	8.8072
+Savogna d'Isonzo	Friuli Venezia Giulia		
+Marina del Cantone	Campania		
+Valmontone	Lazio	41.7732	12.9186
+Sarturano	Piedmont		
+San Vito Chietino	Abruzzo	42.2901	14.4427
+Sanluri	Sardinia	39.5618	8.8997
+Civitavecchia	Lazio	42.0933	11.7967
+Marina di Grosseto	Tuscany		
+Viagrande	Sicily	37.6103	15.0979
+Blevio	Lombardy	45.8422	9.1051
+Brentonico	Trentino-Alto Adige	45.8191	10.9551
+Torregrotta	Sicily	38.2026	15.3501
+Pizzo Calabro	Calabria		
+Catanzaro	Calabria	38.8825	16.6009
+Soverato	Calabria	38.6875	16.5419
+Mondovì	Piedmont		
+Asti	Piedmont	44.9016	8.2075
+Castel Mella	Lombardy	45.4991	10.1455
+Sulmona	Abruzzo	42.0494	13.9258
+Gabicce Monte	Marche		
+San Giorgio di Valpolicella	Veneto		
+Ruffano	Apulia	39.9819	18.2497
+Sienna	Tuscany		
+Vintl	Trentino-Alto Adige	46.7758	11.9383
+Fornace	Trentino-Alto Adige	46.118	11.2075
+Perignano	Tuscany	43.6	10.5833
+Suzzara	Lombardy	44.9924	10.7441
+Caprino Veronese	Veneto	45.6049	10.7952
+Panzano	Tuscany	44.6203	11.04
+Panzano	Tuscany	43.5442	11.3144
+Giulianova	Abruzzo	42.7538	13.9665
+Cusago	Lombardy	45.45	9.0374
+Chiavari	Liguria	44.3177	9.3224
+Follonica	Tuscany	42.9278	10.7645
+Sorisole	Lombardy	45.7314	9.6371
+Lignano Sabbiadoro	Friuli Venezia Giulia	45.6759	13.1173
+Lancenigo	Veneto	45.7136	12.2736
+Ponte a Moriano	Tuscany		
+Rivergaro	Emilia-Romagna	44.915	9.6044
+Venaria Reale	Piedmont	45.126	7.6314
+Viceno	Lazio		
+Trecchina	Basilicata	40.0261	15.7758
+Illasi	Veneto	45.4666	11.1817
+Peschici	Apulia	41.8271	15.5343
+Capannori	Tuscany	43.8417	10.5727
+Sirmione	Lombardy	45.4974	10.6051
+Moirago	Lombardy	45.3696	9.137
+Olbia	Sardinia	40.9234	9.498
+Longiano	Emilia-Romagna	44.0745	12.3297
+Albairate	Lombardy	45.4196	8.9374
+Saint Lorenzen	Trentino-Alto Adige		
+Pedraces	Trentino-Alto Adige	46.6	11.8833
+Appignano	Marche	42.5454	13.8497
+Appignano	Marche	43.3628	13.3477
+Passignano	Umbria		
+San Remo	Liguria	43.8173	7.7772
+Lama Mocogno	Emilia-Romagna	44.2996	10.709
+Montaldo Scarampi	Piedmont	44.8303	8.259
+Somma Vesuviana	Campania	40.8733	14.4387
+Crotone	Calabria	39.0808	17.1276
+Rivisondoli	Abruzzo	41.8702	14.0667
+Saturnia	Tuscany	42.6667	11.5069
+Foiana	Trentino-Alto Adige		
+Monterosso al Mare	Liguria		
+Menfi	Sicily	37.6041	12.9689
+Pagazzano	Lombardy	45.5343	9.6712
+Limone sul Garda	Lombardy		
+Alserio	Lombardy	45.7789	9.2001
+Augusta	Sicily	37.2407	15.2212
+Sizzano	Piedmont	45.5766	8.4361
+Pescocostanzo	Abruzzo	41.8872	14.0661
+Pontelongo	Veneto	45.2459	12.0258
+Montepulciano	Tuscany	43.1	11.787
+Ruda	Friuli Venezia Giulia	45.8399	13.4018
+Gardone Riviera	Lombardy	45.624	10.5668
+San Giustino Valdarno	Tuscany	43.5527	11.705
+Ospedaletto d'Alpinolo	Campania		
+Seggiano	Tuscany	45.4882	9.3224
+Seggiano	Tuscany	42.929	11.5574
+Grottaferrata	Lazio	41.7866	12.6714
+Ticciano	Campania		
+Treia	Marche	43.3085	13.3104
+Valdieri	Piedmont	44.2776	7.3976
+Rapallo	Liguria	44.3496	9.228
+Pallanza	Piedmont		
+San Michele	Piedmont	38.9609	16.4174
+San Michele	Piedmont	40.6202	14.5502
+San Michele	Piedmont	44.04	12.4277
+San Michele	Piedmont	45.7833	10.7
+San Michele	Piedmont	45.6959	9.0586
+San Michele	Piedmont	43.3094	12.9583
+San Michele	Piedmont	44.9284	8.5798
+San Michele	Piedmont	38.0385	14.9435
+San Michele	Piedmont	44.1846	10.2969
+San Michele	Piedmont	43.9678	10.849
+San Michele	Piedmont	46.4547	11.2618
+Imola	Emilia-Romagna	44.3592	11.7132
+Olevano Romano	Lazio	41.8587	13.036
+Spoltore	Abruzzo	42.455	14.1399
+Greve in Chianti	Tuscany		
+Mortara	Lombardy	45.2494	8.733
+Lonigo	Veneto	45.3858	11.384
+Roncade	Veneto	45.6217	12.3764
+Vittorio Veneto	Veneto	45.9803	12.3006
+Squille	Campania	41.1553	14.4327
+Castel di Sangro	Abruzzo		
+Formello	Lazio	42.0625	12.3944
+Terrasini	Sicily	38.1462	13.0832
+Brescia	Lombardy	45.5356	10.2147
+Caltanissetta	Sicily	37.4903	14.0622
+Villar Dora	Piedmont	45.1146	7.3835
+Contigliano	Lazio	42.4106	12.772
+Noci	Apulia	40.7936	17.1268
+Lodi	Lombardy	45.3099	9.5009
+Arco	Trentino-Alto Adige	45.9177	10.8867
+Iseo	Lombardy	45.6588	10.0502
+Nettuno	Lazio	41.4579	12.6639
+Monterotondo	Lazio	42.0516	12.6197
+Monterotondo	Lazio	45.6091	10.0435
+Amalfi	Campania	40.6349	14.6024
+Lucera	Apulia	41.5055	15.3391
+Breuil Cervinia	Aosta Valley	45.9336	7.6326
+Peschiera del Garda	Veneto		
+Cerreto Guidi	Tuscany	43.7585	10.8819
+Vicenza	Veneto	45.5467	11.5475
+Schio	Veneto	45.7126	11.3567
+Cerretto Langhe	Piedmont		
+Capri	Campania	40.5507	14.2426
+Mandello del Lario	Lombardy		
+Corvara in Badia	Trentino-Alto Adige		
+Montù Beccaria	Lombardy		
+Montallegro	Sicily	37.3912	13.3518
+Voghera	Lombardy	44.9915	9.0117
+Treviglio	Lombardy	45.5208	9.591
+Lenna	Lombardy	45.9427	9.6788
+Mestre	Veneto	45.4917	12.2454
+Fondo	Trentino-Alto Adige	46.4388	11.1372
+Brennero	Trentino-Alto Adige	47.0057	11.5063
+Grottammare	Marche	42.9818	13.8676
+Casteggio	Lombardy	45.014	9.1253
+Pozzolo Formigaro	Piedmont	44.7993	8.7836
+Sutri	Lazio	42.246	12.2172
+Montopoli in Val d'Arno	Tuscany		
+Riola Sardo	Sardinia	39.9936	8.5413
+San Marzano di San Giuseppe	Apulia		
+Marina di Ragusa	Sicily		
+Rivarolo Canavese	Piedmont	45.3283	7.7211
+Peschiera Borromeo	Lombardy	45.4367	9.3302
+Carpi	Emilia-Romagna	44.7824	10.8777
+Torriana	Emilia-Romagna	43.9849	12.3854
+Pennabilli	Emilia-Romagna	43.8175	12.2671
+Ponte di Legno	Lombardy		
+Misano Adriatico	Emilia-Romagna	43.9771	12.698
+Panicale	Umbria	43.0283	12.0999
+Sarre	Aosta Valley	45.7459	7.2362
+Trebaseleghe	Veneto	45.5929	12.0439
+Esine	Lombardy	45.9251	10.251
+Ravello	Campania	40.6493	14.6117
+Rho	Lombardy	45.5324	9.0402
+Terni	Umbria	42.5633	12.6433
+Cortina d'Ampezzo	Veneto		
+Rubiera	Emilia-Romagna	44.6516	10.7794
+Palazzo San Gervasio	Basilicata	40.9316	15.9815
+Ischia	Campania	40.7379	13.9486
+Ischia	Campania	43.0013	13.72
+Malo	Veneto	45.6591	11.416
+San Quirino	Friuli Venezia Giulia	46.0341	12.6785
+Grazie	Lombardy	45.1539	10.6945
+Grazie	Lombardy	44.002	10.8782
+Monsummano Terme	Tuscany	43.8672	10.813
+Magliano Alfieri	Piedmont	44.7692	8.0701
+Sestri Ponente	Liguria	44.4261	8.8485
+Poggiridenti	Lombardy	46.1748	9.9261
+Badia	Trentino-Alto Adige	38.563	15.9541
+Badia	Trentino-Alto Adige	46.6082	11.8963
+Porto San Giorgio	Marche	43.1778	13.7941
+Macerata	Marche	43.2979	13.4529
+Colle	Tuscany	46.1631	12.8086
+Andora	Liguria	43.9551	8.1412
+Pozzuoli	Campania	40.8322	14.1045
+Oggiono	Lombardy	45.7913	9.3482
+Giarre	Sicily	37.7244	15.1816
+Cefalu	Sicily		
+Chieri	Piedmont	45.0105	7.8213
+Tropea	Calabria	38.6745	15.895
+Porto Rotondo	Sardinia	41.0275	9.5405
+Porto San Paolo	Sardinia	40.8754	9.6271
+Este	Veneto	45.2234	11.6638
+Lido di Savio	Emilia-Romagna		
+Roseto degli Abruzzi	Abruzzo		
+Rovato	Lombardy	45.5634	10.0021
+Pollenzo	Piedmont	44.6866	7.8952
+Oppeano	Veneto	45.3033	11.1801
+Glorenza	Trentino-Alto Adige	46.671	10.5568
+Chies d'Alpago	Veneto		
+Castagnito d'Alba	Piedmont		
+San Casciano in Val di Pesa	Tuscany		
+Brusciano	Campania	40.9224	14.4239
+Corciano	Umbria	43.1282	12.2868
+Puegnago sul Garda	Lombardy		
+Cernobbio	Lombardy	45.8431	9.0719
+Casale Monferrato	Piedmont	45.1334	8.4525
+Bassano del Grappa	Veneto		
+Teramo	Abruzzo	42.6612	13.699
+Arezzo	Tuscany	43.4628	11.8807
+Rivanazzano Terme	Lombardy		
+Mira	Veneto	45.4346	12.1294
+Coriano	Emilia-Romagna	43.9691	12.6005
+Buttrio	Friuli Venezia Giulia	46.011	13.3335
+Deruta	Umbria	42.9847	12.4176
+Carrara	Tuscany	41.5405	12.9547
+Carrara	Tuscany	44.0793	10.0979
+Cima	Trentino-Alto Adige	46.0251	9.0912
+Cavour	Piedmont	44.7929	7.3744
+Saludecio	Emilia-Romagna	43.8754	12.6612
+Santa Maria di Castellabate	Campania		
+Rapolano Terme	Tuscany	43.295	11.6026
+Montecalvo Versiggia	Lombardy	44.9721	9.2854
+Montoro	Campania	40.8221	14.7848
+Montoro	Campania	43.4552	13.4136
+Montoro	Campania	42.5071	12.467
+Baronissi	Campania	40.7482	14.7738
+Varallo	Piedmont	45.8138	8.2581
+Varenna	Lombardy	46.0108	9.2846
+Castel San Pietro Terme	Emilia-Romagna	44.3985	11.5855
+Passignano sul Trasimeno	Umbria		
+San Giorgio del Sannio	Campania		
+Nibbiaia	Tuscany	43.464	10.4162
+Romeno	Trentino-Alto Adige	46.3945	11.1192
+Robbiate	Lombardy	45.6883	9.4371
+Bacoli	Campania	40.7967	14.0735
+Soprabolzano	Trentino-Alto Adige	46.529	11.4041
+Piombino	Tuscany	42.9255	10.5259
+Assisi	Umbria	43.0667	12.6211
+Canazei	Trentino-Alto Adige	46.4763	11.7693
+Apricena	Apulia	41.7863	15.4439
+Pieve di Coriano	Lombardy		
+Senorbì	Sardinia		
+Nova Levante	Trentino-Alto Adige	46.429	11.5394
+Treiso	Piedmont	44.6897	8.0881
+Otranto	Apulia	40.1479	18.4868
+Caiolo	Lombardy	46.15	9.8145
+Gaione	Emilia-Romagna	44.7583	10.2903
+Ponte	Campania	41.2155	14.6983
+Ponte	Campania	40.19	15.2371
+Lavariano	Friuli Venezia Giulia	45.956	13.2283
+Rivoli	Piedmont	45.0707	7.5146
+Crevalcore	Emilia-Romagna	44.7197	11.1477
+Marina di Gioiosa Ionica	Calabria		
+Albiate	Lombardy	45.6554	9.2504
+Rodengo Saiano	Lombardy	45.8766	10.2262
+Cala Gonone	Sardinia	40.2809	9.6297

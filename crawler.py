@@ -8,6 +8,8 @@ from aiohttp import ClientSession
 # Constants
 ROOT_FOLDER = "restaurants"
 FILENAME = "restaurants.txt"
+TSV_FILENAME = "restaurant_i.tsv"
+TSV_PREPROCESSED = "processed_restaurants.tsv"
 # Number of URLs per folder
 N_CARDS_PER_FOLDER = 20 
 # Maximum retry attempts for each folder 
@@ -39,7 +41,7 @@ def scraping(filename=FILENAME, n_pages=100):
                     card_link = card.find("a")
                     if card_link and card_link.get("href"):
                         card_url = card_link["href"]
-                        print(f"{link_counter}: {card_url}")
+                        # print(f"{link_counter}: {card_url}")
                         f.write(card_url + "\n")
                         link_counter += 1
             except requests.exceptions.RequestException as e:
@@ -80,7 +82,7 @@ async def commit_html(session: ClientSession, folder_number: int, restaurant_nam
             # Write HTML content to specified file
             with open(file_path, 'wb') as file:
                 file.write(content)
-            print(f"'{url}' is saved to '{file_path}'")
+            # print(f"'{url}' is saved to '{file_path}'")
             return 0  # Success
 
     except Exception as e:
@@ -148,7 +150,7 @@ async def crawl_restaurants(base_filename: str = FILENAME, n_cards: int = N_CARD
                 break
 
             # Print for debugging to verify URL range in each folder
-            print(f"Folder {page + 1} covers URLs from {start_index} to {end_index - 1}")
+            # print(f"Folder {page + 1} covers URLs from {start_index} to {end_index - 1}")
 
             # Process this folder (group of 20 URLs) asynchronously with retries
             result = await process_folder(page + 1, page_urls)
