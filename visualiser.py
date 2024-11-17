@@ -10,6 +10,7 @@ class MetricsSelection:
             "priceRange": None,
             "cuisineType": [],
         }
+        self.result = None
 
 # ============================== QUERY ================================== #
 
@@ -394,7 +395,7 @@ def create_simple_search_ui(search_function, *args, **kwargs):
     # Display the Search button
     display(search_button)
 
-def create_metrics_search_ui(metrics_values, search_function, *args, **kwargs):
+def create_metrics_search_ui(metrics_selector, search_function, *args, **kwargs):
     """
     Creates a search UI and dynamically executes the passed search function.
 
@@ -407,8 +408,6 @@ def create_metrics_search_ui(metrics_values, search_function, *args, **kwargs):
     Returns:
         None
     """
-    # Define
-    metrics_selector = MetricsSelection(metrics_values)
     # Display the query selector
     display(metrics_selector.render_all())
 
@@ -419,6 +418,8 @@ def create_metrics_search_ui(metrics_values, search_function, *args, **kwargs):
         icon="search",  # Add a search icon
         layout={"width": "150px"}
     )
+
+    result = None
 
     # Define Widget Event that will display the result of ranking matching restaurants
     def search_ranked(change):
@@ -438,6 +439,7 @@ def create_metrics_search_ui(metrics_values, search_function, *args, **kwargs):
             # Dynamically execute the passed search function with args/kwargs
             result = search_function(query, selected_metrics, *args, **kwargs)
             display(result)
+            metrics_selector.result = result
         else:
             display("ENTER QUERY TEXT, BITTE!")
 
