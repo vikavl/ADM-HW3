@@ -20,7 +20,11 @@ This repository contains the solution for **Homework 3** of the course **Algorit
 
 Since the notebook is not interactive on github I will attach screenshoots from my local notebook.
 
+Also I will attach a link to collab notebook:
+[https://colab.research.google.com/drive/1iGdtRJno3IjTArm4yiT6GWidQYgfV761?usp=sharing](https://colab.research.google.com/drive/1iGdtRJno3IjTArm4yiT6GWidQYgfV761?usp=sharing)
+
 **2. Create search engines**
+
 Also I create a single form for inputting the query text. I used it in 2.1 and 2.2.
 <p align=center>
 <img src="images\form_query.png">
@@ -43,4 +47,11 @@ The final map contains a heatmap defined by price ranges for each cities. In the
 <p align=center>
 <img src="images\points.png">
 </p>
+
+
+**Preview of working visual elements in the notebook:**
+
+https://github.com/user-attachments/assets/10c68069-365b-46fb-9577-2eeefbab1b39
+
+
 
